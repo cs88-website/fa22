@@ -1,0 +1,6 @@
+# This file is also copied to the main website.
+
+published
+.DS_Store
+.token
+__pycache__
