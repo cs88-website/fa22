@@ -1,0 +1,139 @@
+# This file is demo , line-by-line of lecture.
+# It includes even the syntax errors and typos.
+
+# This is my terminal:
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3
+Python 3.9.13 (main, May 24 2022, 21:28:31)
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 1 + 1
+2
+>>> 8 * 11
+88
+>>> 61 < 88
+True
+>>> print('Hello, ' + 'CS88')
+Hello, CS88
+>>> print(11 * 8)
+88
+>>> # here it typed Control-D to exit python
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3
+Python 3.9.13 (main, May 24 2022, 21:28:31)
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3 02-Functions.py
+Welcome to CS88!
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3 02-Functions.py
+Welcome to CS88!
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3 02-Functions.py
+Welcome to CS88!
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3
+Python 3.9.13 (main, May 24 2022, 21:28:31)
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> # Control-D again to exit python
+
+
+# Demoing `ls` to list files in the current directory (folder)
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 ls
+01-Welcome.pdf              07-HOFs_Environments.pptx
+01-Welcome.pptx             08-Lambda_Dictionaries.pptx
+02-Functions.pdf            09-ADTs.pptx
+02-Functions.pptx           10-Recursion.pptx
+02-Functions.py             11-Recursion_II.pptx
+03-Loops.pptx               lect_1_updates.png
+04-Lists.pptx               notes.md
+05-HOFs.pptx                ~$02-Functions.pptx
+06-Lists_HOFs.pptx
+
+Michael at MacBook-Pro in ~/Dropbox/Projects/cs88/cs88/src/assets/slides/fa22 on master
+👉 python3
+Python 3.9.13 (main, May 24 2022, 21:28:31)
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>>
+>>> max(61, 88)
+88
+>>> min(61, 88)
+61
+>>> max)
+  File "<stdin>", line 1
+    max)
+       ^
+SyntaxError: unmatched ')'
+>>> max
+<built-in function max>
+>>> max(61, 100)
+100
+>>> help()
+
+Welcome to Python 3.9's help utility!
+
+If this is your first time using Python, you should definitely check out
+the tutorial on the Internet at https://docs.python.org/3.9/tutorial/.
+
+Enter the name of any module, keyword, or topic to get help on writing
+Python programs and using Python modules.  To quit this help utility and
+return to the interpreter, just type "quit".
+
+To get a list of available modules, keywords, symbols, or topics, type
+"modules", "keywords", "symbols", or "topics".  Each module also comes
+with a one-line summary of what it does; to list the modules whose name
+or summary contain a given string such as "spam", type "modules spam".
+
+help>
+You are now leaving help and returning to the Python interpreter.
+If you want to ask for help on a particular object directly from the
+interpreter, you can type "help(object)".  Executing "help('string')"
+has the same effect as typing a particular string at the help> prompt.
+>>> help(max)
+Help on built-in function max in module builtins:
+
+max(...)
+    max(iterable, *[, default=obj, key=func]) -> value
+    max(arg1, arg2, *args, *[, key=func]) -> value
+
+    With a single iterable argument, return its biggest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the largest argument.
+
+~
+# Type `q` to exit help.
+>>>
+>>>
+>>> def welcomd(): # I define a function with a typo... oops.
+...     print('Welcome to CS88!')
+...
+>>> welcome()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'welcome' is not defined
+>>> def welcome():
+...     print('Welcome to CS88!')
+...
+>>> welc
+welcomd(  welcome(
+>>> welcome())
+  File "<stdin>", line 1
+    welcome())
+             ^
+SyntaxError: unmatched ')'
+>>> welcome()
+Welcome to CS88!
+>>>
+# Now we got it! :)
