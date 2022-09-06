@@ -1,0 +1,33 @@
+{
+    "name": "Homework 2",
+    "endpoint": "cal/cs88/fa22/hw02",
+    "src": [
+        "hw02.py"
+    ],
+    "tests": {
+        "hw02.py:fib": "doctest",
+        "hw02.py:nonzero": "doctest",
+        "hw02.py:has_n": "doctest",
+        "hw02.py:total_price": "doctest",
+        "hw02.py:arange": "doctest",
+        "hw02.py:reverse_iter_for": "doctest",
+        "hw02.py:reverse_iter_while": "doctest"
+    },
+    "default_tests": [
+        "fib",
+        "nonzero",
+        "has_n",
+        "total_price",
+        "arange",
+        "reverse_iter_for",
+        "reverse_iter_while"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}
