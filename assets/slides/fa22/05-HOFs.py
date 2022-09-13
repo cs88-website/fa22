@@ -1,8 +1,8 @@
 # List Comprehensions
-courses = ['CS 88', 'DATA 8', 'POLSCI 2', 'MATH 54']
+courses = ['DATA C88C', 'DATA 8', 'POLSCI 2', 'MATH 54']
 
 # Make a list from a for loop in one line!
-numbers = [x * 2 for x in range(10) ]
+numbers = [2 ** x for x in range(10) ]
 # print(numbers)
 
 # print() returns None
@@ -54,7 +54,7 @@ def sum_squared(n):
     """
     total = 0
     for i in range(n + 1):
-        total = total + square(i)
+        total += square(i)
     return total
 
 def sum_cubes(n):
@@ -104,7 +104,8 @@ def sum_error(n, term):
 from operator import mul
 
 def pi_term(k):
-    return 8 / mul(k * 4 - 3, k * 4 - 1)
+    # This is the expansion of the terms on the summation slide.
+    return 8 / (16*k*k + 12*k + 4*k + 3)
 
 summation(10000, pi_term)
 
