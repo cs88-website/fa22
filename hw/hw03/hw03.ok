@@ -1,0 +1,30 @@
+{
+    "name": "Homework 3",
+    "endpoint": "cal/cs88/fa22/hw03",
+    "src": [
+        "hw03.py"
+    ],
+    "tests": {
+      "hw03.py:add_matrices": "doctest",
+      "hw03.py:mul_by_num": "doctest",
+      "hw03.py:make_derivative": "doctest",
+      "hw03.py:count_cond": "doctest",
+      "hw03.py:cycle": "doctest",
+      "hw03.py:store_word": "doctest"
+    },
+    "default_tests": [
+        "add_matrices",
+        "mul_by_num",
+        "make_derivative",
+        "count_cond",
+        "cycle",
+        "store_word"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
