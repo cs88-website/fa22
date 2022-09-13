@@ -1,0 +1,30 @@
+{
+    "name": "Lab 3",
+    "endpoint": "cal/cs88/fa22/lab03",
+    "src": [
+        "lab03.py"
+    ],
+    "tests": {
+        "lab03.py:twice": "doctest",
+        "lab03.py:apply_n": "doctest",
+        "lab03.py:make_buzzer": "doctest",
+        "lab03.py:piecewise": "doctest",
+        "lab03.py:funception": "doctest",
+        "lab03.py:match_pairs": "doctest"
+    },
+    "default_tests": [
+        "twice",
+        "apply_n",
+        "make_buzzer",
+        "piecewise",
+        "funception",
+        "match_pairs"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}
