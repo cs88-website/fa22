@@ -4,6 +4,9 @@ from functools import reduce
 def add_one(n):
     return n + 1
 
+def square(n):
+    return n * n
+
 add_one(3)
 
 def make_adder(n):
@@ -29,7 +32,7 @@ def compose(f, g):
 
 add_2 = make_adder(2)
 add_3 = make_adder(3)
-x = add_2(x)
+x = add_2(3)
 
 add_5 = compose(add_2, add_3)
 y = add_5(x)
@@ -67,8 +70,6 @@ words = cal.split()
 # [ n * n for n in numbers ]
 # [1, 4, 9, 16, 25, 36, 49, 64, 81]
 
-def square(n):
-    return n * n
 square(5)
 map(square, numbers)
 
@@ -107,21 +108,15 @@ def is_even(n):
 # ...
 is_even(3)
 # False
- numbers
-#   File "<stdin>", line 1
-numbers
-# IndentationError: unexpected indent
-numbers
 # range(0, 10)
 [ n for n in numbers if is_even(n) ]
-2, 4, 6, 8]
 filter(is_even, numbers)
 # <filter object at 0x101069b50>
 list(filter(is_even, numbers))
-2, 4, 6, 8]
+
 def long_word(word):
     return len(word) > 3
-# ...
+
 long_word('of')
 # False
 list(filter(long_word, words))
@@ -137,104 +132,3 @@ add(1, 2)
 reduce(add, numbers)
 # 45
 list(numbers)
-1, 2, 3, 4, 5, 6, 7, 8, 9]
-1 + 2 +3 +4+5+6+7+8+9
-# 45
-result = add(0, 1)
-result
-# 1
-result = add(result, 2)
-result
-# 3
-result = add(result, 3)
-result = add(result, 4)
-result = add(result, 5)
-result = add(result, 6)
-result
-# 21
-result = add(result, 7)
-result = add(result, 8)
-result = add(result, 9)
-result
-# 45
-reduce(mul, numbers)
-# 0
-reduce(mul, range(1, 5))
-# 24
-reduce(mul, range(1, 10))
-# 362880
-# >>>
-# >>>
-# >>>
-# >>>
-# >>>
-words
-# ['The', 'University', 'of', 'Califonria', 'at', 'Berkeley']
-def sentence(word1, word2):
-    return word1 + ' ' + word2
-# ...
-sentence('Hello', 'CS88')
-# 'Hello CS88'
-reduce(sentence, words)
-# 'The University of Califonria at Berkeley'
-join
-# Traceback (most recent call last):
-#   File "<stdin>", line 1, in <module>
-# NameError: name 'join' is not defined
-def join(word1, word2):
-    return word1 + word2
-# ...
-# >>>
-
-
-
-
-
-
-
-# >>>
-# >>>
-words
-# ['The', 'University', 'of', 'Califonria', 'at', 'Berkeley']
-school
-# 'The University of Califonria at Berkeley'
-first_letter('Berkeley')
-# 'B'
-long_word('The')
-# False
- add('U', 'C')
-#   File "<stdin>", line 1
-add('U', 'C')
-# IndentationError: unexpected indent
-add('U', 'C')
-# 'UC'
-'U' + 'C'
-# 'UC'
-map(first_letter, words)
-# <map object at 0x10103be80>
-list(map(first_letter, words))
-# ['T', 'U', 'o', 'C', 'a', 'B']
-list(filter(long_word,  map(first_letter, words)))
-# []
-list(map(first_letter, filter(long_word, words)))
-# ['U', 'C', 'B']
-reduce(add, map(first_letter, filter(long_word, words)))
-# 'UCB'
-def acronym(sentence):
-    words = setence.split()
-    return reduce(add, map(first_letter, filter(long_word, words)))
-# ...
-school
-# 'The University of Califonria at Berkeley'
-acronym(school)
-# Traceback (most recent call last):
-#   File "<stdin>", line 1, in <module>
-#   File "<stdin>", line 2, in acronym
-# NameError: name 'setence' is not defined
-def acronym(sentence):
-    words = sentence.split()
-    return reduce(add, map(first_letter, filter(long_word, words)))
-# ...
-acronym(school)
-# 'UCB'
-# >>>
