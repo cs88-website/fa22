@@ -83,7 +83,7 @@ def acronym(sentence):
     >>> acronym(jc)
     "LSJU"
     """
-    words = setence.split()
+    words = sentence.split()
     return reduce(add, map(first_letter, filter(long_word, words)))
 
 first_letter('Berkeley')
@@ -102,5 +102,5 @@ def acronym_2(sentence):
     >>> acronym(jc)
     "LSJU"
     """
-    words = setence.split()
-    return reduce(add, map(first_letter, filter(long_word, words)))
+    words = sentence.split()
+    return reduce(add, map(first_letter, filter(keep_words, words)))
