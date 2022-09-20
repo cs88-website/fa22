@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="/fa22/assets/css/hw.css"/>
+
+
+    <title>Homework 4 | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <div class="row row-no-gutters">
+    <div class="col-md-8">
+        <h1 class="content-title-brand" style="padding-top: 0;">
+            Homework 4
+            <br>
+            <small><i>Due at 11:59:59 pm on Thursday, September 29.</i></small>
+        </h1>
+    </div>
+    <div class="col-md-4">
+        <a class="h1 btn btn-lg" href="hw04.zip">hw04.zip</a>
+    </div>
+</div>
+    </div>
+
+    <h2>Instructions</h2>
+
+<p>Download <a href="hw04.zip"> hw04.zip</a>.
+    Inside the archive, you will find starter files for the questions in this homework,
+    along with a copy of the OK autograder.</p>
+
+<p><strong>Submission:</strong> When you are done, submit with <code>python3 ok --submit</code>. You may submit more than once before the deadline; only the final submission will be scored. Check that you have successfully submitted your code on <a href="https://okpy.org">okpy.org</a>.</p>
+
+<p><strong>Readings:</strong> This homework relies on following references:</p>
+
+<ul>
+  <li><a href="http://composingprograms.com/pages/16-higher-order-functions.html#lambda-expressions">Section 1.6</a></li>
+</ul>
+
+    
+
+
+<h2 id="lambdas">Lambdas</h2>
+
+
+<h3 class="question" id="q1">Question 1: Make your own lambdas</h3>
+
+<p>For each of the following expressions, write functions <code>f1</code>, <code>f2</code>,
+<code>f3</code>, and <code>f4</code> such that the evaluation of each expression
+succeeds, without causing an error. Be sure to use lambdas in your
+function definition instead of nested <code>def</code> statements. Each function
+should have a one line solution.</p>
+
+<p><code>f1</code> takes in nothing and returns 3. <code>f2</code> takes in nothing and returns a function that takes in nothing and returns 3. <code>f3</code> takes in nothing and returns a function that takes in 1 value and returns that same value.</p>
+
+<p><code>f4</code> takes in nothing and returns a function. This function takes in nothing and returns another function. This next function takes in a value and returns yet another function. This final function takes in nothing and returns the value passed into the previous function (if this explanation is confusing, have a look at the doctest, and it might be more clear).</p>
+
+<solution>
+
+<pre><code>def f1():
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; f1()
+    3
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+
+def f2():
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; f2()()
+    3
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+
+def f3():
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; f3()(3)
+    3
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+
+def f4():
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; f4()()(3)()
+    3
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q f1
+python3 ok -q f2
+python3 ok -q f3
+python3 ok -q f4</code></pre>
+
+<h3 class="question" id="q2">Question 2: Higher Order Lambdas</h3>
+
+<p>Return a lambda function that takes in a multiplier (the multiplier is a number) and returns a 
+lambda function that will take in another number and will return the new input multiplied by the multiplier.</p>
+
+<solution>
+
+<pre><code>def higher_order_lambdas():
+    &quot;&quot;&quot;
+    Return a lambda function that takes in a multiplier and returns a lambda function that given an input will 
+    return the input multiplied by the multiplier
+    &gt;&gt;&gt; hol = higher_order_lambdas()
+    &gt;&gt;&gt; doubles = hol(2)
+    &gt;&gt;&gt; doubles(3)
+    6
+    &gt;&gt;&gt; hol = higher_order_lambdas()
+    &gt;&gt;&gt; triples = hol(3)
+    &gt;&gt;&gt; triples(4)
+    12
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q higher_order_lambdas</code></pre>
+
+<h3 class="question" id="q3">Question 3: Lambdas and Currying</h3>
+
+<p>We can transform multiple-argument functions into a chain of
+single-argument, higher order functions by taking advantage of lambda
+expressions. This is useful when dealing with functions that take only
+single-argument functions. We will see some examples of these later
+on.</p>
+
+<p>Write a function <code>lambda_curry2</code> that will curry any two argument
+function <code>fn</code> using lambdas. See the doctest if you're not sure what this
+means.</p>
+
+<solution>
+
+<pre><code>def lambda_curry2(fn):
+    &quot;&quot;&quot;
+    Returns a Curried version of a two argument function func.
+    &gt;&gt;&gt; from operator import add
+    &gt;&gt;&gt; x = lambda_curry2(add)
+    &gt;&gt;&gt; y = x(3)
+    &gt;&gt;&gt; y(5)
+    8
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+    </code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q lambda_curry2</code></pre>
+
+
+<h2 id="dictionaries">Dictionaries</h2>
+
+
+<h3 class="question" id="q4">Question 4: Replace All</h3>
+
+<p>Given a dictionary <code>d</code>, return a new dictionary where all occurences of <code>x</code> as a value (not a key) is replaced with <code>y</code>.</p>
+
+<solution>
+
+<pre><code>def replace_all(d, x, y):
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; d = {&#x27;foo&#x27;: 2, &#x27;bar&#x27;: 3, &#x27;garply&#x27;: 3, &#x27;xyzzy&#x27;: 99}
+    &gt;&gt;&gt; e = replace_all(d, 3, &#x27;poof&#x27;)
+    &gt;&gt;&gt; e == {&#x27;foo&#x27;: 2, &#x27;bar&#x27;: &#x27;poof&#x27;, &#x27;garply&#x27;: &#x27;poof&#x27;, &#x27;xyzzy&#x27;: 99}
+    True
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+    </code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q replace_all</code></pre>
+
+<h3 class="question" id="q5">Question 5: Merge Dictionaries</h3>
+
+<p>Implement the function <code>merge_dict</code>. The <code>merge_dict</code> function merges two dictionaries with the same keys together
+by adding up their values for the corresponding keys and returning the resulting dictionary.</p>
+
+<solution>
+
+<pre><code>def merge_dict(d1, d2):
+    &quot;&quot;&quot;Returns a dictionary that is the result of two dictionaries being merged together. 
+    Dictionaries are merged by adding up their values. You can assume that the same keys 
+    appear in both dictionaries.
+    &gt;&gt;&gt; data8 = {&quot;midterms&quot;:1, &quot;projects&quot;:3}
+    &gt;&gt;&gt; data100 = {&quot;midterms&quot;:2, &quot;projects&quot;:3}
+    &gt;&gt;&gt; combined_exams = merge_dict(data8, data100)
+    &gt;&gt;&gt; combined_exams
+    {&#x27;midterms&#x27;: 3, &#x27;projects&#x27;: 6}
+    &gt;&gt;&gt; sunday_orders = {&quot;pizza&quot;: 3, &quot;hot dogs&quot;: 2, &quot;fries&quot;: 5}
+    &gt;&gt;&gt; monday_orders = {&quot;pizza&quot;: 1, &quot;hot dogs&quot;: 1, &quot;fries&quot;: 8}
+    &gt;&gt;&gt; combined_orders = merge_dict(sunday_orders, monday_orders)
+    &gt;&gt;&gt; combined_orders
+    {&#x27;pizza&#x27;: 4, &#x27;hot dogs&#x27;: 3, &#x27;fries&#x27;: 13}
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+    </code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q merge_dict</code></pre>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#lambdas">Lambdas</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Make your own lambdas</a></li>
+  <li><a href="#q2">Question 2: Higher Order Lambdas</a></li>
+  <li><a href="#q3">Question 3: Lambdas and Currying</a></li>
+</ul>
+
+  <li><a href="#dictionaries">Dictionaries</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: Replace All</a></li>
+  <li><a href="#q5">Question 5: Merge Dictionaries</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+
+  </body>
+</html>

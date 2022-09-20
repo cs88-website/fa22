@@ -1,0 +1,24 @@
+{
+    "name": "Homework 4",
+    "endpoint": "cal/cs88/fa22/hw04",
+    "src": [
+        "hw04.py"
+    ],
+    "tests": {
+        "hw04.py:f1": "doctest",
+        "hw04.py:f2": "doctest",
+        "hw04.py:f3": "doctest",
+        "hw04.py:f4": "doctest",
+        "hw04.py:higher_order_lambdas":"doctest",
+        "hw04.py:lambda_curry2": "doctest",
+        "hw04.py:replace_all": "doctest",
+        "hw04.py:merge_dict": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
