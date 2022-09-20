@@ -1,0 +1,23 @@
+{
+	"name": "Lab 4",
+	"endpoint": "cal/cs88/fa22/lab04",
+	"src": [
+        "lab04.py",
+		"tests/lambda.py"
+    ],
+    "tests": {
+	    "tests/lambda.py": "ok_test",
+      "lab04.py:mul_by_num": "doctest",
+      "lab04.py:compose": "doctest",
+      "lab04.py:counter": "doctest",
+      "lab04.py:common_players": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "unlock",
+				"analytics",
+        "backup"
+    ]
+}
