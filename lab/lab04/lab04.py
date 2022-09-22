@@ -68,7 +68,8 @@ def common_players(roster):
     """Returns a dictionary containing values along with a corresponding
     list of keys that had that value from the original dictionary.
     >>> full_roster = {"bob": "Team A", "barnum": "Team B", "beatrice": "Team C", "bernice": "Team B", "ben": "Team D", "belle": "Team A", "bill": "Team B", "bernie": "Team B", "baxter": "Team A"}
-    >>> common_players(full_roster)
+    >>> player_dict = common_players(full_roster)
+    >>> dict(sorted(player_dict.items()))
     {'Team A': ['bob', 'belle', 'baxter'], 'Team B': ['barnum', 'bernice', 'bill', 'bernie'], 'Team C': ['beatrice'], 'Team D': ['ben']}
     """
     "*** YOUR CODE HERE ***"

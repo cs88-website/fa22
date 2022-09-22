@@ -454,7 +454,8 @@ of times that word is present in the original string.</p>
     &quot;&quot;&quot;Returns a dictionary containing values along with a corresponding
     list of keys that had that value from the original dictionary.
     &gt;&gt;&gt; full_roster = {&quot;bob&quot;: &quot;Team A&quot;, &quot;barnum&quot;: &quot;Team B&quot;, &quot;beatrice&quot;: &quot;Team C&quot;, &quot;bernice&quot;: &quot;Team B&quot;, &quot;ben&quot;: &quot;Team D&quot;, &quot;belle&quot;: &quot;Team A&quot;, &quot;bill&quot;: &quot;Team B&quot;, &quot;bernie&quot;: &quot;Team B&quot;, &quot;baxter&quot;: &quot;Team A&quot;}
-    &gt;&gt;&gt; common_players(full_roster)
+    &gt;&gt;&gt; player_dict = common_players(full_roster)
+    &gt;&gt;&gt; dict(sorted(player_dict.items()))
     {&#x27;Team A&#x27;: [&#x27;bob&#x27;, &#x27;belle&#x27;, &#x27;baxter&#x27;], &#x27;Team B&#x27;: [&#x27;barnum&#x27;, &#x27;bernice&#x27;, &#x27;bill&#x27;, &#x27;bernie&#x27;], &#x27;Team C&#x27;: [&#x27;beatrice&#x27;], &#x27;Team D&#x27;: [&#x27;ben&#x27;]}
     &quot;&quot;&quot;
 <div class="alt 4">    "*** YOUR CODE HERE ***"
