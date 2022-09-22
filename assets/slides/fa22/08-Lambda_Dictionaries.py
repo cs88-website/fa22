@@ -43,6 +43,6 @@ counts
 counts.keys()
 counts.values()
 counts.items()
-counts['time']
-counts['hello']
+# counts['time']
+# counts['hello']
 counts.get('hello')
