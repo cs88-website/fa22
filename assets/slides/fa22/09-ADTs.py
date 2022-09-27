@@ -1,7 +1,9 @@
 course = {
     'name': 'Comp Structures in Data Science',
     'number': 'C88C',
-    'room': '105 Stanley Hall'
+    'room': '105 Stanley Hall',
+    'units': 3,
+    'sections': [101, 102]
 }
 
 text = 'Once Upon A Time'
