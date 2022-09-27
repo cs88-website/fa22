@@ -1,0 +1,23 @@
+{
+    "name": "Lab 05",
+    "endpoint": "cal/cs88/fa22/lab05",
+    "src": [
+        "lab05.py"
+    ],
+    "tests": {
+        "lab05.py:distance": "doctest",
+        "lab05.py:closer_city": "doctest",
+        "lab05.py:check_abstraction": "doctest",
+        "lab05.py:make_politician": "doctest",
+        "lab05.py:get_pol_name": "doctest",
+        "lab05.py:get_party": "doctest",
+        "lab05.py:get_age": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}
