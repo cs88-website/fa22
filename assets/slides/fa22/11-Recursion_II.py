@@ -24,7 +24,7 @@ def factorial(n):
     return n * factorial(n-1)
 
 def iter_fact(n):
-    result = 1:
+    result = 1
     for i in range(1, n+1):
         result *= i
     return result
@@ -117,6 +117,10 @@ def min_r(s):
     else:
         return min(first(s), min_r(rest(s)))
 
+
+
+
+
 def palindrome(word):
   if len(word) == 1:
     return True
@@ -170,3 +174,9 @@ def palindrome_iter(word):
             return False
         word = word[1:-1]
     return True
+
+def sum_n(n):
+    print(n)
+    if n == 0:
+        return 0
+    return n + sum_n(n - 1)
