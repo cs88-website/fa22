@@ -1,0 +1,22 @@
+{
+    "name": "Lab 6",
+    "endpoint": "cal/cs88/fa22/lab06",
+    "src": [
+        "lab06.py"
+    ],
+    "tests": {
+      "lab06.py:sum": "doctest",
+      "lab06.py:has_seven": "doctest",
+      "lab06.py:filter": "doctest",
+      "lab06.py:decimal": "doctest",
+      "lab06.py:paths": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}
