@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="/fa22/assets/css/hw.css"/>
+
+
+    <title>Homework 6 | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <div class="row row-no-gutters">
+    <div class="col-md-8">
+        <h1 class="content-title-brand" style="padding-top: 0;">
+            Homework 6
+            <br>
+            <small><i>Due at 11:59:59 pm on Sunday, 10/16/2022.</i></small>
+        </h1>
+    </div>
+    <div class="col-md-4">
+        <a class="h1 btn btn-lg" href="hw06.zip">hw06.zip</a>
+    </div>
+</div>
+    </div>
+
+    <h2>Instructions</h2>
+
+<p>Download <a href="hw06.zip"> hw06.zip</a>.
+    Inside the archive, you will find starter files for the questions in this homework,
+    along with a copy of the OK autograder.</p>
+
+<p><strong>Submission:</strong> When you are done, submit with <code>python3 ok --submit</code>. You may submit more than once before the deadline; only the final submission will be scored. Check that you have successfully submitted your code on <a href="https://okpy.org">okpy.org</a>.</p>
+
+<p><strong>Readings:</strong> This homework relies on following references:</p>
+
+<ul>
+  <li><a href="http://composingprograms.com/pages/17-recursive-functions.html">Section 1.7</a></li>
+</ul>
+
+    
+
+
+<h2 id="recursion">Recursion</h2>
+
+
+<h3 class="question" id="q1">Question 1: Reduce</h3>
+
+<p>Write the recursive version of the function <code>reduce</code> which takes</p>
+
+<ul>
+  <li>reducer - a two-argument function that reduces elements to a single value</li>
+  <li>s - a sequence of values</li>
+  <li>base - the starting value in the reduction.  This is usually the identity of the reducer</li>
+</ul>
+
+<p>If you're feeling stuck, think about the parameters of <code>reduce</code>.</p>
+
+<solution>
+
+<pre><code>from operator import add, mul
+
+def reduce(reducer, seq, base):
+    &quot;&quot;&quot;Reduce a sequence under a two&#x2d;argument function starting from a base value.
+
+    &gt;&gt;&gt; def add(x, y):
+    ...     return x + y
+    &gt;&gt;&gt; def mul(x, y):
+    ...     return x*y
+    &gt;&gt;&gt; reduce(add, [1,2,3,4], 0)
+    10
+    &gt;&gt;&gt; reduce(mul, [1,2,3,4], 0)
+    0
+    &gt;&gt;&gt; reduce(mul, [1,2,3,4], 1)
+    24
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+    </code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q reduce</code></pre>
+
+<h3 class="question" id="q2">Question 2: Remove Last from Sequence</h3>
+
+<p>Complete the recursive function <code>remove_last</code> which creates a new list identical to the input list <code>s</code> but with the last element in the sequence that is equal to <code>x</code> removed.</p>
+
+<blockquote><p><em>Hint:</em> Remember that you can use negative indexing on lists! For example <code>lst[&#x2d;1]</code> refers to the last element in a list <code>lst</code>, <code>lst[&#x2d;2]</code> refers to the second to last element...</p></blockquote>
+
+<solution>
+
+<pre><code>def remove_last(x, s):
+    &quot;&quot;&quot;Create a new list that is identical to s but with the last
+    element from the list that is equal to x removed.
+
+    &gt;&gt;&gt; remove_last(1,[])
+    []
+    &gt;&gt;&gt; remove_last(1,[1])
+    []
+    &gt;&gt;&gt; remove_last(1,[1,1])
+    [1]
+    &gt;&gt;&gt; remove_last(1,[2,1])
+    [2]
+    &gt;&gt;&gt; remove_last(1,[3,1,2])
+    [3, 2]
+    &gt;&gt;&gt; remove_last(1,[3,1,2,1])
+    [3, 1, 2]
+    &gt;&gt;&gt; remove_last(5, [3, 5, 2, 5, 11])
+    [3, 5, 2, 11]
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Illustrated here is a more complete doctest that shows good testing methodology.
+It is a little cumbersome as documentation, but you'll want to think about it
+for your projects.  Test every condition that might come up.  Then you won't be
+surprised when it does.</p>
+
+</question Remove from sequence>
+<p>Use OK to test your code:</p><pre><code>python3 ok -q remove_last</code></pre>
+
+<h3 class="question" id="q3">Question 3: Binary</h3>
+
+<p>A decimal, or base 10, number is a number expressed in the everyday format that we are all used to. We can also express numbers with the binary system, which expresses numbers in powers of 2.</p>
+
+<p>For example, 8 (base 10 number) translates to ‘1000’ (binary number).</p>
+
+<table style="margin:auto;">
+    <tr>
+        <td style="padding:8px;">1</td>
+        <td style="padding:8px;">0</td>
+        <td style="padding:8px;">0</td>
+        <td style="padding:8px;">0</td>
+    </tr>
+    <tr>
+        <td style="padding:8px;">2<sup>3</sup></td>
+        <td style="padding:8px;">2<sup>2</sup></td>
+        <td style="padding:8px;">2<sup>1</sup></td>
+        <td style="padding:8px;">2<sup>0</sup></td>
+    </tr>
+</table>
+
+<p>‘1’ or ‘0’ indicates whether the value that it represents is included in the base 10 value. 8 can just be represented with 2<sup>3</sup>, so we represent this with a ‘1’ in that corresponding placement and ‘0’ for other powers of 2.</p>
+
+<p>As another example, 5 would translate to ‘101’.</p>
+
+<table style="margin:auto;">
+    <tr>
+        <td style="padding:8px;">1</td>
+        <td style="padding:8px;">0</td>
+        <td style="padding:8px;">1</td>
+    </tr>
+    <tr>
+        <td style="padding:8px;">2<sup>2</sup></td>
+        <td style="padding:8px;">2<sup>1</sup></td>
+        <td style="padding:8px;">2<sup>0</sup></td>
+    </tr>
+</table>
+
+<p>For numbers that are not powers of 2, like 5, we represent them with several powers of 2. We use 2<sup>2</sup> and 2<sup>0</sup> for 5.</p>
+
+<p>Notice that we always start with the power of 0 at the right.</p>
+
+<p>Now that you know how to read binary numbers, let’s try to implement <code>binary</code>. Write the recursive function <code>binary</code> which takes in <code>n</code>, a base 10 number, and returns a list representing the representation of the number in base 2.</p>
+
+<p>You may find the following article helpful in understanding how to convert a number <a href="https://flaviocopes.com/converting-decimal-to-binary/">from
+decimal to binary</a>.</p>
+
+<solution>
+
+<pre><code>def binary(n):
+    &quot;&quot;&quot;Return a list representing the representation of a number in base 2.
+
+    &gt;&gt;&gt; binary(55055)
+    [1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1]
+    &gt;&gt;&gt; binary(&#x2d;136)
+    [&#x27;&#x2d;&#x27;, 1, 0, 0, 0, 1, 0, 0, 0]
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q binary</code></pre>
+
+<h3 class="question" id="q4">Question 4: Hailstone</h3>
+
+<p>For the <code>hailstone</code> function from previously, you pick a positive
+integer <code>n</code> as the start. If <code>n</code> is even, divide it by 2. If <code>n</code> is
+odd, multiply it by 3 and add 1. Repeat this process until <code>n</code> is 1.
+Write a recursive version of hailstone that prints out the values of
+the sequence and returns the number of steps.</p>
+
+<solution>
+
+<pre><code>def hailstone_iterative(n):
+    &quot;&quot;&quot;Print out the hailstone sequence starting at n, and return the
+    number of elements in the sequence.
+
+    &gt;&gt;&gt; a = hailstone_iterative(10)
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    &gt;&gt;&gt; a
+    7
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"
+
+def hailstone_recursive(n):
+    &quot;&quot;&quot;Print out the hailstone sequence starting at n, and return the
+    number of elements in the sequence.
+
+    &gt;&gt;&gt; a = hailstone_recursive(10)
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    &gt;&gt;&gt; a
+    7
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q hailstone_iterative
+python3 ok -q hailstone_recursive</code></pre>
+
+
+<h2 id="tree-recursion">Tree Recursion</h2>
+
+
+<h3 class="question" id="q5">Question 5: Count Change</h3>
+
+<p>A set of coins makes change for <code>n</code> if the sum of the values of the
+coins is <code>n</code>.  For example, if you have 1-cent, 2-cent and 4-cent
+coins, the following sets make change for <code>7</code>:</p>
+
+<ul>
+  <li>7 1-cent coins</li>
+  <li>5 1-cent, 1 2-cent coins</li>
+  <li>3 1-cent, 2 2-cent coins</li>
+  <li>3 1-cent, 1 4-cent coins</li>
+  <li>1 1-cent, 3 2-cent coins</li>
+  <li>1 1-cent, 1 2-cent, 1 4-cent coins</li>
+</ul>
+
+<p>Thus, there are 6 ways to make change for <code>7</code>.  Write a function
+<code>count_change</code> that takes a positive integer <code>n</code> and a list of
+the coin denominations and returns the number of ways to make change
+for <code>n</code> using these coins (Hint: You will need to use tree recursion):</p>
+
+<solution>
+
+<pre><code>def count_change(amount, denominations):
+    &quot;&quot;&quot;Returns the number of ways to make change for amount.
+
+    &gt;&gt;&gt; denominations = [50, 25, 10, 5, 1]
+    &gt;&gt;&gt; count_change(7, denominations)
+    2
+    &gt;&gt;&gt; count_change(100, denominations)
+    292
+    &gt;&gt;&gt; denominations = [16, 8, 4, 2, 1]
+    &gt;&gt;&gt; count_change(7, denominations)
+    6
+    &gt;&gt;&gt; count_change(10, denominations)
+    14
+    &gt;&gt;&gt; count_change(20, denominations)
+    60
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q count_change</code></pre>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#recursion">Recursion</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Reduce</a></li>
+  <li><a href="#q2">Question 2: Remove Last from Sequence</a></li>
+  <li><a href="#q3">Question 3: Binary</a></li>
+  <li><a href="#q4">Question 4: Hailstone</a></li>
+</ul>
+
+  <li><a href="#tree-recursion">Tree Recursion</a></li>
+  <ul>
+  <li><a href="#q5">Question 5: Count Change</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+
+  </body>
+</html>
