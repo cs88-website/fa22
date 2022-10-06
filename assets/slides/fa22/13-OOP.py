@@ -7,7 +7,6 @@ class Test:
 
 class Point:
     def __init__(self, x, y):
-        print('Point: ', self)
         self.x = x
         self.y = y
 
@@ -21,6 +20,9 @@ class Point:
     def distance(self, other):
         diff = self - other
         return (diff.x ** 2 + diff.y ** 2) ** 0.5
+
+# TODAY: We will not use all the features of the this class.
+# _name is just a *convention* to communicate something internal.
 
 class BaseAccount:
     def __init__(self, name, initial_deposit=0):
