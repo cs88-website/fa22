@@ -40,9 +40,9 @@ class BaseAccount:
         self._balance += amount
         return self._balance
 
-    @property
-    def name(self):
-        return self._name
+    # @property
+    # def name(self):
+    #     return self._name
 
 # Make a new account
 my_account = BaseAccount('CS88', 100)
