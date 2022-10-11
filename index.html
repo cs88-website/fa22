@@ -938,6 +938,12 @@ sql notebook</td>
         </tr>
 
         <tr>
+            <td class='resource-name'><a href="lab/lab07/" class="", target="">Lab 7: OOP</a></td>
+            <td class='resource-type'>Lab</td>
+            <td class='resource-tags'></td>
+        </tr>
+
+        <tr>
             <td class='resource-name'><a href="disc/disc00.pdf" class="", target="">Discussion 0: Intro Disc (Not Real)</a> <a href="disc/disc00_sol.pdf" class="label label-outline", target="">Solutions</a></td>
             <td class='resource-type'>Discussion</td>
             <td class='resource-tags'></td>
@@ -980,7 +986,7 @@ sql notebook</td>
         </tr>
 
         <tr>
-            <td class='resource-name'>Discussion 7: Object Oriented Programming Solutions</td>
+            <td class='resource-name'><a href="disc/disc07.pdf" class="", target="">Discussion 7: Object Oriented Programming</a> <a href="disc/disc07_sol.pdf" class="label label-outline", target="">Solutions</a></td>
             <td class='resource-type'>Discussion</td>
             <td class='resource-tags'></td>
         </tr>
@@ -1040,13 +1046,19 @@ sql notebook</td>
         </tr>
 
         <tr>
-            <td class='resource-name'><a href="hw/hw05/" class="", target="">Homework 5</a></td>
+            <td class='resource-name'><a href="hw/hw05/" class="", target="">Homework 5</a> Solutions</td>
             <td class='resource-type'>Homework</td>
             <td class='resource-tags'></td>
         </tr>
 
         <tr>
             <td class='resource-name'><a href="hw/hw06/" class="", target="">Homework 6</a></td>
+            <td class='resource-type'>Homework</td>
+            <td class='resource-tags'></td>
+        </tr>
+
+        <tr>
+            <td class='resource-name'><a href="hw/hw07/" class="", target="">Homework 7</a></td>
             <td class='resource-type'>Homework</td>
             <td class='resource-tags'></td>
         </tr>
@@ -1410,7 +1422,7 @@ sql notebook</td>
 <td></td>
 <td></td>
 <td><a href="disc/disc05.pdf" class="", target="">Discussion 5: Abstract Data Types</a> <a href="disc/disc05_sol.pdf" class="label label-outline", target="">Solutions</a></td>
-<td><a href="hw/hw05/" class="", target="">Homework 5</a><br/><time class="label label-primary" datetime=2022-10-06T00:00:00>due Thu 10/6</time></td>
+<td><a href="hw/hw05/" class="", target="">Homework 5</a><br/><time class="label label-primary" datetime=2022-10-06T00:00:00>due Thu 10/6</time> Solutions</td>
 </tr>
 <tr>
 <td>Thu 9/29</td>
@@ -1457,15 +1469,15 @@ sql notebook</td>
 <a href="assets/slides/fa22/14-OOP_II.py" class="label label-outline", target="_blank">py</a></td>
 <td><a href="http://composingprograms.com/pages/25-object-oriented-programming.html#" class="label label-outline", target="_blank">2.5</a><br/>
 <a href="http://composingprograms.com/pages/27-object-abstraction.html#" class="label label-outline", target="_blank">2.7</a></td>
-<td></td>
+<td><a href="lab/lab07/" class="", target="">Lab 7: OOP</a><br/><time class="label label-primary" datetime=2022-10-18T00:00:00>due Tue 10/18</time></td>
 <td></td>
 </tr>
 <tr>
 <td>Wed 10/12</td>
 <td></td>
 <td></td>
-<td>Discussion 7: Object Oriented Programming Solutions</td>
-<td></td>
+<td><a href="disc/disc07.pdf" class="", target="">Discussion 7: Object Oriented Programming</a> <a href="disc/disc07_sol.pdf" class="label label-outline", target="">Solutions</a></td>
+<td><a href="hw/hw07/" class="", target="">Homework 7</a><br/><time class="label label-primary" datetime=2022-10-21T00:00:00>due Fri 10/21</time></td>
 </tr>
 <tr>
 <td>Thu 10/13</td>
@@ -1760,7 +1772,7 @@ $(document).ready(function() {
   }
 
   // Assignment quick list
-  var assignments = [{"due": "8/30/22", "link": "lab/lab00/", "name": "Lab 0: Community and Setup", "release": "8/24/22"}, {"due": "9/6/22", "link": "lab/lab01/", "name": "Lab 1: Control and Functions", "release": "8/30/22"}, {"due": "9/13/22", "link": "lab/lab02/", "name": "Lab 2: Lists, List Comprehension and Iteration", "release": "9/6/22"}, {"due": "9/20/22", "link": "lab/lab03/", "name": "Lab 3: Environments and Higher Order Functions", "release": "9/13/22"}, {"due": "9/27/22", "link": "lab/lab04/", "name": "Lab 4: Lambdas and Dictionaries", "release": "9/20/22"}, {"due": "10/4/22", "link": "lab/lab05/", "name": "Lab 5: ADTs", "release": "9/27/22"}, {"due": "10/11/22", "link": "lab/lab06/", "name": "Lab 6: Recursion", "release": "10/4/22"}, {"due": "9/8/22", "link": "hw/hw01/", "name": "Homework 1", "release": "8/31/22"}, {"due": "9/15/22", "link": "hw/hw02/", "name": "Homework 2", "release": "9/7/22"}, {"due": "9/22/22", "link": "hw/hw03/", "name": "Homework 3", "release": "9/14/22"}, {"due": "9/29/22", "link": "hw/hw04/", "name": "Homework 4", "release": "9/21/22"}, {"due": "10/6/22", "link": "hw/hw05/", "name": "Homework 5", "release": "9/28/22"}, {"due": "10/16/22", "link": "hw/hw06/", "name": "Homework 6", "release": "10/5/22"}, {"due": "10/12/22", "link": "proj/maps/", "name": "Maps", "release": "9/26/22"}];
+  var assignments = [{"due": "8/30/22", "link": "lab/lab00/", "name": "Lab 0: Community and Setup", "release": "8/24/22"}, {"due": "9/6/22", "link": "lab/lab01/", "name": "Lab 1: Control and Functions", "release": "8/30/22"}, {"due": "9/13/22", "link": "lab/lab02/", "name": "Lab 2: Lists, List Comprehension and Iteration", "release": "9/6/22"}, {"due": "9/20/22", "link": "lab/lab03/", "name": "Lab 3: Environments and Higher Order Functions", "release": "9/13/22"}, {"due": "9/27/22", "link": "lab/lab04/", "name": "Lab 4: Lambdas and Dictionaries", "release": "9/20/22"}, {"due": "10/4/22", "link": "lab/lab05/", "name": "Lab 5: ADTs", "release": "9/27/22"}, {"due": "10/11/22", "link": "lab/lab06/", "name": "Lab 6: Recursion", "release": "10/4/22"}, {"due": "10/18/22", "link": "lab/lab07/", "name": "Lab 7: OOP", "release": "10/11/22"}, {"due": "9/8/22", "link": "hw/hw01/", "name": "Homework 1", "release": "8/31/22"}, {"due": "9/15/22", "link": "hw/hw02/", "name": "Homework 2", "release": "9/7/22"}, {"due": "9/22/22", "link": "hw/hw03/", "name": "Homework 3", "release": "9/14/22"}, {"due": "9/29/22", "link": "hw/hw04/", "name": "Homework 4", "release": "9/21/22"}, {"due": "10/6/22", "link": "hw/hw05/", "name": "Homework 5", "release": "9/28/22"}, {"due": "10/16/22", "link": "hw/hw06/", "name": "Homework 6", "release": "10/5/22"}, {"due": "10/21/22", "link": "hw/hw07/", "name": "Homework 7", "release": "10/12/22"}, {"due": "10/12/22", "link": "proj/maps/", "name": "Maps", "release": "9/26/22"}];
 
   $(document).ready(function() {
     $("#resources-search-box").keyup(function() {
