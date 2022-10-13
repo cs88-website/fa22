@@ -59,6 +59,9 @@ class CheckingAccount(BaseAccount):
     def show_superclass(self):
         return super()
 
+    def print_super(self):
+        print(super())
+
 class SavingsAccount(BaseAccount):
     interest_rate = 0.02
 
@@ -103,6 +106,11 @@ class Bank:
     def all_accounts(self):
         return tuple(self.__accounts)
 
+    def __len__(self):
+        return len(self.__accounts)
+
+    def total_assets(self):
+        return sum(map(lambda a: a.account_balance(), self.__accounts))
 
 berkeley = Bank('UC Berkeley')
 
