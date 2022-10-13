@@ -1,43 +1,16 @@
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def subtract(self, other):
-        return Point(self.x - other.x, self.y - other.y)
-
-    def __sub__(self, other):
-        """Allows us to write point3 = point1 - point2"""
-        return self.subtract(other)
-
-    def distance(self, other):
-        diff = self - other
-        return (diff.x ** 2 + diff.y ** 2) ** 0.5
-
-    def __str__(self):
-        """Returns a nicely readable format when we call print()"""
-        # Remember, this is just shorthand:
-        # return "Point (x: " + str(self.x) + ", y: " + str(self.y) + ")"
-        return f'Point (x: {self.x}, y: {self.y})'
-
 class BaseAccount:
     """Create named accounts with a balance that is
     - increased by account_deposit
     - decreased by account_withdrawl
     """
-    # Class astributes outside and class defs
-    _account_number_seed = 1000
-    bank_name = 'Berkeley'
-    _all_accounts = []
-
     # Constructor
-    def __init__(self, name, initial_deposit=0):
+    def __init__(self, name, initial_deposit=0, account_number=0, bank=None):
         # Initialize the instance attributes
         self._name = name
-        self._acct_no = BaseAccount._account_number_seed
-        BaseAccount._account_number_seed += 1
+        self._bank = bank
+        self._acct_no = account_number
         self._balance = initial_deposit
-        BaseAccount._all_accounts.append(self)
+        self.test_attribute = 'Base Account'
 
     # Selectors
     def account_name(self):
@@ -69,15 +42,11 @@ class BaseAccount:
     def __str__(self):
         return f'{self.account_type()}Account: {self.account_name()}-{self.account_number()} Balance: {self._balance}'
 
-    def show_accounts():
-        for account in BaseAccount._all_accounts:
-            print(account)
 
 class CheckingAccount(BaseAccount):
-    _account_number_seed = 5000
-    def __init__(self, name, initial_deposit):
+    def __init__(self, name, initial_deposit, account_number=0, bank=None):
         # Use superclass initializer
-        BaseAccount.__init__(self, name, initial_deposit)
+        BaseAccount.__init__(self, name, initial_deposit, account_number, bank)
         # Alternatively:
         # super().__init__(name, initial_deposit)
         # Additional initialization
@@ -93,9 +62,9 @@ class CheckingAccount(BaseAccount):
 class SavingsAccount(BaseAccount):
     interest_rate = 0.02
 
-    def __init__(self, name, initial_deposit):
+    def __init__(self, name, initial_deposit, account_number, bank):
         # Use superclass initializer
-        super().__init__(name, initial_deposit)
+        super().__init__(name, initial_deposit, account_number, bank)
         # BaseAccount.__init__(self, name, initial_deposit)
         # Additional initialization
         self._type = "Savings"
@@ -114,5 +83,27 @@ class SavingsAccount(BaseAccount):
     def __str__(self):
         return self.__repr__()
 
+class Bank:
+    def __init__(self, name, initial_account_number=1000):
+        self.name = name
+        self.__next_account_no = initial_account_number
+        self.__accounts = []
 
-cs88 = CheckingAccount('CS88', 1000)
+    def new_account(self, name, initial_deposit=0, account_type=CheckingAccount):
+        account_no = self.__next_account_no
+        account = account_type(name, initial_deposit, account_no, self)
+        self.__next_account_no += 1
+        self.__accounts.append(account)
+        return account
+
+    def show_accounts(self):
+        for acct in self.__accounts:
+            print(acct)
+
+    def all_accounts(self):
+        return tuple(self.__accounts)
+
+
+berkeley = Bank('UC Berkeley')
+
+# cs88 = CheckingAccount('CS88', 1000)
