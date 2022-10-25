@@ -1,0 +1,33 @@
+{
+    "name": "Lab 8",
+    "endpoint": "cal/cs88/fa22/lab08",
+    "src": [
+        "lab08.py",
+        "lab08_extra.py"
+    ],
+    "tests": {
+        "lab08.py:Mint": "doctest",
+        "lab08.py:Beater.energy": "doctest",
+        "lab08.py:Chaser.energy": "doctest",
+        "lab08.py:Seeker.energy": "doctest",
+        "lab08.py:Keeper.energy": "doctest",
+        "lab08_extra.py:tax": "doctest",
+        "lab08_extra.py:total_cost": "doctest"
+    },
+    "default_tests": [
+        "Mint",
+        "Beater.energy",
+        "Chaser.energy",
+        "Seeker.energy",
+        "Keeper.energy"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup",
+        "scoring"
+    ]
+}

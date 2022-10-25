@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="/fa22/assets/css/lab.css" />
+
+
+    <title>CS88 | Lab 8: Inheritance | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <div class="row row-no-gutters">
+  <div class="col-md-8">
+      <h1 class="content-title-brand" style="padding-top: 0;">
+          Lab 8: Inheritance
+          <br>
+          <small><i>Due at 11:59:59 pm on 11/1/2022.</i></small>
+      </h1>
+  </div>
+  <div class="col-md-4">
+      <a class="h1 btn btn-lg" href="lab08.zip">lab08.zip</a>
+  </div>
+</div>
+    </div>
+
+    <h2 id='starter-files'>Starter Files</h2>
+
+<p>Download <a href="lab08.zip">lab08.zip</a>.
+Inside the archive, you will find starter files for the questions in this lab,
+  along with a copy of the OK autograder.</p>
+
+<h2 id='submission'>Submission</h2>
+
+<p>By the end of this lab, you should have submitted the lab with <code>python3 ok --submit</code>. You may submit more than once before the deadline; only the final submission will be graded. Check that you have successfully submitted your code on <a href="https://okpy.org">okpy.org</a>.</p>
+
+
+
+    
+
+
+<h2 id="inheritance">Inheritance</h2>
+
+
+<h3 class="question" id="q1">Question 1: Mint</h3>
+
+<p>Complete the <code>Mint</code> and <code>Coin</code> classes so that the coins created by a mint have
+the correct year and worth.</p>
+
+<ul>
+  <li>Each <code>Mint</code> instance has a <code>year</code> stamp. The <code>update</code> method sets the
+  <code>year</code> stamp to the <code>current_year</code> class attribute of the <code>Mint</code> class.</li>
+  <li>The <code>create</code> method takes a subclass of <code>Coin</code> and returns an instance of
+  that class stamped with the <code>mint</code>'s year (which may be different from
+  <code>Mint.current_year</code> if it has not been updated.) Hint: Check out the 
+  <code>create_animal</code> method in this <a href="https://tinyurl.com/4nc6ahe6">demo</a>.</li>
+  <li>A <code>Coin</code>'s <code>worth</code> method returns the <code>cents</code> value of the coin plus one
+  extra cent for each year of age beyond 50. A coin's age can be determined
+  by subtracting the coin's year from the <code>current_year</code> class attribute of
+  the <code>Mint</code> class.</li>
+</ul>
+
+
+
+<pre><code>class Mint:
+    &quot;&quot;&quot;A mint creates coins by stamping on years.
+
+    The update method sets the mint&#x27;s stamp to Mint.current_year.
+
+    &gt;&gt;&gt; mint = Mint()
+    &gt;&gt;&gt; mint.year
+    2020
+    &gt;&gt;&gt; dime = mint.create(Dime)
+    &gt;&gt;&gt; dime.year
+    2020
+    &gt;&gt;&gt; Mint.current_year = 2100  # Time passes
+    &gt;&gt;&gt; nickel = mint.create(Nickel)
+    &gt;&gt;&gt; nickel.year     # The mint has not updated its stamp yet
+    2020
+    &gt;&gt;&gt; nickel.worth()  # 5 cents + (80 &#x2d; 50 years)
+    35
+    &gt;&gt;&gt; mint.update()   # The mint&#x27;s year is updated to 2100
+    &gt;&gt;&gt; Mint.current_year = 2175     # More time passes
+    &gt;&gt;&gt; mint.create(Dime).worth()    # 10 cents + (75 &#x2d; 50 years)
+    35
+    &gt;&gt;&gt; Mint().create(Dime).worth()  # A new mint has the current year
+    10
+    &gt;&gt;&gt; dime.worth()     # 10 cents + (155 &#x2d; 50 years)
+    115
+    &gt;&gt;&gt; Dime.cents = 20  # Upgrade all dimes!
+    &gt;&gt;&gt; dime.worth()     # 20 cents + (155 &#x2d; 50 years)
+    125
+    &gt;&gt;&gt; m = Mint()
+    &gt;&gt;&gt; n = m.create(Nickel)
+    &gt;&gt;&gt; n.worth()
+    5
+    &gt;&gt;&gt; n.year = 2015
+    &gt;&gt;&gt; n.worth()
+    115
+    &quot;&quot;&quot;
+    current_year = 2020
+
+    def __init__(self):
+        self.update()
+
+    def create(self, kind):
+<div class="alt 1">        "*** YOUR CODE HERE ***"
+</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x6b;&#x69;&#x6e;&#x64;&#x28;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x79;&#x65;&#x61;&#x72;&#x29;</div>
+    def update(self):
+<div class="alt 1">        "*** YOUR CODE HERE ***"
+</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x79;&#x65;&#x61;&#x72;&#x20;&#x3d;&#x20;&#x4d;&#x69;&#x6e;&#x74;&#x2e;&#x63;&#x75;&#x72;&#x72;&#x65;&#x6e;&#x74;&#x5f;&#x79;&#x65;&#x61;&#x72;</div>
+class Coin:
+    def __init__(self, year):
+        self.year = year
+
+    def worth(self):
+        &quot;The worth is a coin&#x27;s face value + 1 cent for each year over age 50.&quot;
+<div class="alt 1">        "*** YOUR CODE HERE ***"
+</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x63;&#x65;&#x6e;&#x74;&#x73;&#x20;&#x2b;&#x20;&#x6d;&#x61;&#x78;&#x28;&#x30;&#x2c;&#x20;&#x4d;&#x69;&#x6e;&#x74;&#x2e;&#x63;&#x75;&#x72;&#x72;&#x65;&#x6e;&#x74;&#x5f;&#x79;&#x65;&#x61;&#x72;&#x20;&#x2d;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x79;&#x65;&#x61;&#x72;&#x20;&#x2d;&#x20;&#x35;&#x30;&#x29;</div>
+class Nickel(Coin):
+    cents = 5
+
+class Dime(Coin):
+    cents = 10</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q Mint</code></pre>
+
+<h3 class="question" id="q2">Question 2: Quidditch</h3>
+
+<p>It's time for the opening quidditch match of the season! We represent the various positions for players with the <code>QuidditchPlayer</code> class and its subclasses. Every player begins with a <code>base_energy</code> level, but every position requires a different proportion of energy. Fill in the <code>energy</code> method for the <code>Beater</code>, <code>Chaser</code>, <code>Seeker</code>, and <code>Keeper</code> classes, according to their docstrings. In addition, fill in the <code>__init__</code> method for the <code>Chaser</code> class.</p>
+
+<div class="solution 2">
+
+<pre><code>class Player:
+    def __init__(self, name, base_energy):
+        &quot;&quot;&quot;
+        Players have a name, and begin with base_energy.
+        &quot;&quot;&quot;
+        self.name = name
+        self.base_energy = base_energy
+
+    def energy(self):
+        return self.base_energy</code></pre>
+
+</div>
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+
+
+<pre><code>class Beater(QuidditchPlayer):
+    role = &quot;bludgers&quot;
+
+    def energy(self, time):
+        &quot;&quot;&quot;
+        Returns the amount of energy left after playing for time minutes. 
+        After playing for time minutes, Beaters lose their base energy level 
+        divided by the number of minutes. If time is 0, catch the ZeroDivisionError 
+        and print &quot;You can&#x27;t divide by zero!&quot; instead.
+        &gt;&gt;&gt; fred = Beater(&quot;Fred Weasley&quot;, 640)
+        &gt;&gt;&gt; fred.energy(40)
+        624.0
+        &gt;&gt;&gt; fred.energy(0)
+        You can&#x27;t divide by zero!
+        &quot;&quot;&quot;
+<div class="alt 3">        "*** YOUR CODE HERE ***"
+        
+</div><div class="solution 3">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x74;&#x72;&#x79;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2d;&#x20;&#x28;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2f;&#x20;&#x74;&#x69;&#x6d;&#x65;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x65;&#x78;&#x63;&#x65;&#x70;&#x74;&#x20;&#x5a;&#x65;&#x72;&#x6f;&#x44;&#x69;&#x76;&#x69;&#x73;&#x69;&#x6f;&#x6e;&#x45;&#x72;&#x72;&#x6f;&#x72;&#x20;&#x61;&#x73;&#x20;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x70;&#x72;&#x69;&#x6e;&#x74;&#x28;&#x22;&#x59;&#x6f;&#x75;&#x20;&#x63;&#x61;&#x6e;&#x27;&#x74;&#x20;&#x64;&#x69;&#x76;&#x69;&#x64;&#x65;&#x20;&#x62;&#x79;&#x20;&#x7a;&#x65;&#x72;&#x6f;&#x21;&#x22;&#x29;</div></code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q Beater.energy</code></pre>
+
+
+
+<pre><code>class Chaser(QuidditchPlayer):
+    role = &quot;score&quot;
+    energy_expended = 20
+
+    def __init__(self, name, base_energy, goals):
+        &quot;&quot;&quot;
+        Chasers have a name, score goals, and begin with base_energy.
+        &quot;&quot;&quot;
+<div class="alt 4">        "*** YOUR CODE HERE ***"
+        
+</div><div class="solution 4">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x73;&#x75;&#x70;&#x65;&#x72;&#x28;&#x29;&#x2e;&#x5f;&#x5f;&#x69;&#x6e;&#x69;&#x74;&#x5f;&#x5f;&#x28;&#x6e;&#x61;&#x6d;&#x65;&#x2c;&#x20;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x67;&#x6f;&#x61;&#x6c;&#x73;&#x20;&#x3d;&#x20;&#x67;&#x6f;&#x61;&#x6c;&#x73;</div>
+    def energy(self, time):
+        &quot;&quot;&quot;
+        Returns the amount of energy left after playing for time minutes. For every goal 
+        they score, they use energy_expended units of energy. In addition, they also use 
+        10% of energy_expended if the number of minutes they have played is a multiple of 9.
+        &gt;&gt;&gt; katie = Chaser(&quot;Katie Bell&quot;, 230, 2)
+        &gt;&gt;&gt; katie.energy(20)
+        190
+        &gt;&gt;&gt; ginny = Chaser(&quot;Ginny Weasley&quot;, 400, 3)
+        &gt;&gt;&gt; ginny.energy(45)
+        338.0
+        &quot;&quot;&quot;
+<div class="alt 4">        "*** YOUR CODE HERE ***"
+        
+</div><div class="solution 4">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x63;&#x75;&#x72;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x3d;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x63;&#x75;&#x72;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2d;&#x3d;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x5f;&#x65;&#x78;&#x70;&#x65;&#x6e;&#x64;&#x65;&#x64;&#x20;&#x2a;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x67;&#x6f;&#x61;&#x6c;&#x73;&#x20;&#x23;&#x20;&#x4e;&#x6f;&#x74;&#x65;&#x3a;&#x20;&#x43;&#x68;&#x61;&#x73;&#x65;&#x72;&#x2e;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x5f;&#x65;&#x78;&#x70;&#x65;&#x6e;&#x64;&#x65;&#x64;&#x20;&#x77;&#x6f;&#x72;&#x6b;&#x73;&#x20;&#x74;&#x6f;&#x6f;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x74;&#x69;&#x6d;&#x65;&#x20;&#x25;&#x20;&#x39;&#x20;&#x3d;&#x3d;&#x20;&#x30;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x63;&#x75;&#x72;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2d;&#x3d;&#x20;&#x30;&#x2e;&#x31;&#x20;&#x2a;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x5f;&#x65;&#x78;&#x70;&#x65;&#x6e;&#x64;&#x65;&#x64;&#x20;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x63;&#x75;&#x72;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;</div></code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q Chaser.energy</code></pre>
+
+
+
+<pre><code>class Seeker(QuidditchPlayer):
+    role = &quot;snitch&quot;
+    energy_expended = 5
+
+    def energy(self, time):
+        &quot;&quot;&quot;
+        Returns the amount of energy after time minutes. Seekers expend energy_expended 
+        units of their energy for every minute they have been playing.
+        &gt;&gt;&gt; harry = Seeker(&quot;Harry Potter&quot;, 700)
+        &gt;&gt;&gt; harry.energy(30)
+        550
+        &gt;&gt;&gt; harry.energy(20)
+        600
+        &quot;&quot;&quot;
+<div class="alt 5">        "*** YOUR CODE HERE ***"
+        
+</div><div class="solution 5">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2d;&#x20;&#x28;&#x74;&#x69;&#x6d;&#x65;&#x20;&#x2a;&#x20;&#x53;&#x65;&#x65;&#x6b;&#x65;&#x72;&#x2e;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x5f;&#x65;&#x78;&#x70;&#x65;&#x6e;&#x64;&#x65;&#x64;&#x29;</div></code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q Seeker.energy</code></pre>
+
+
+
+<pre><code>class Keeper(QuidditchPlayer):
+    role = &quot;guard&quot;
+    energy_expended = 50
+
+    def energy(self, time):
+        &quot;&quot;&quot;
+        Returns the amount of energy after time minutes. If less than 30 minutes have 
+        passed, then Keepers do not lose any energy. If 30 minutes or more have passed, 
+        then Keepers expend 80% of their energy_expended units for every full 15 
+        minutes that pass.
+        &gt;&gt;&gt; oliver = Keeper(&quot;Oliver Wood&quot;, 380)
+        &gt;&gt;&gt; oliver.energy(45)
+        260.0
+        &gt;&gt;&gt; oliver.energy(29)
+        380
+        &quot;&quot;&quot;
+<div class="alt 6">        "*** YOUR CODE HERE ***"
+        
+</div><div class="solution 6">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x3d;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x74;&#x69;&#x6d;&#x65;&#x20;&#x3c;&#x20;&#x33;&#x30;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x73;&#x65;&#x6c;&#x66;&#x2e;&#x62;&#x61;&#x73;&#x65;&#x5f;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x65;&#x6c;&#x73;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x69;&#x20;&#x69;&#x6e;&#x20;&#x72;&#x61;&#x6e;&#x67;&#x65;&#x28;&#x74;&#x69;&#x6d;&#x65;&#x20;&#x2f;&#x2f;&#x20;&#x31;&#x35;&#x29;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x3d;&#x20;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x20;&#x2d;&#x20;&#x28;&#x30;&#x2e;&#x38;&#x20;&#x2a;&#x20;&#x4b;&#x65;&#x65;&#x70;&#x65;&#x72;&#x2e;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;&#x5f;&#x65;&#x78;&#x70;&#x65;&#x6e;&#x64;&#x65;&#x64;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x65;&#x6e;&#x65;&#x72;&#x67;&#x79;</div></code></pre>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q Keeper.energy</code></pre>
+
+<p>After you finish implementing the QuidditchPlayers, run the following command in your terminal to play the game:</p>
+
+<pre><code>python3 &#x2d;i quidditch_game.py</code></pre>
+
+
+<h2 id="optional-list-review">Optional List Review</h2>
+
+
+<h3 class="question" id="q3">Question 3: Shopping Tax</h3>
+Complete the function <code>tax</code> which takes in a list that represents a shopping cart called <code>shopping_cart</code> and return a new list that also represents the same shopping cart but with a <code>percent</code> tax added to the price of each item. 
+
+<p>A shopping cart is represented as a list of 3-element tuples like this:</p>
+
+<pre><code>[(item1, cost1, quantity1), (item2, cost2, quantity2), ..., (itemN, costN, quantityN)]</code></pre>
+
+<p>Then complete the function <code>total_cost</code> which takes in a list that represents a shopping cart called <code>shopping_cart</code> and returns the total cost of all the items in that shopping cart. 
+</p>
+
+<pre><code>def tax(shopping_cart, percent):
+    &quot;&quot;&quot; Returns a new list where a `percent` tax is added to each item&#x27;s price in a shopping cart.
+    &gt;&gt;&gt; fruit_cart = [(&quot;apple&quot;, 0.5, 3), (&quot;banana&quot;, 0.25, 4)]
+    &gt;&gt;&gt; tax(fruit_cart, 10)
+    [(&#x27;apple&#x27;, 0.55, 3), (&#x27;banana&#x27;, 0.275, 4)]
+    &gt;&gt;&gt; cal_cart = [(&quot;oski&quot;, 1000, 1), (&quot;go&quot;, 1.25, 2), (&quot;bears&quot;, 3.5, 2)]
+    &gt;&gt;&gt; tax(cal_cart, 100)
+    [(&#x27;oski&#x27;, 2000.0, 1), (&#x27;go&#x27;, 2.5, 2), (&#x27;bears&#x27;, 7.0, 2)]
+    &quot;&quot;&quot;
+<div class="alt 7">    "*** YOUR CODE HERE ***"
+    
+</div><div class="solution 7">&#x20;&#x20;&#x20;&#x20;&#x74;&#x61;&#x78;&#x5f;&#x6d;&#x75;&#x6c;&#x74;&#x69;&#x70;&#x6c;&#x69;&#x65;&#x72;&#x3d;&#x20;&#x31;&#x20;&#x2b;&#x20;&#x28;&#x70;&#x65;&#x72;&#x63;&#x65;&#x6e;&#x74;&#x20;&#x2f;&#x20;&#x31;&#x30;&#x30;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x5b;&#x28;&#x6e;&#x61;&#x6d;&#x65;&#x2c;&#x20;&#x70;&#x72;&#x69;&#x63;&#x65;&#x20;&#x2a;&#x20;&#x74;&#x61;&#x78;&#x5f;&#x6d;&#x75;&#x6c;&#x74;&#x69;&#x70;&#x6c;&#x69;&#x65;&#x72;&#x2c;&#x20;&#x71;&#x75;&#x61;&#x6e;&#x74;&#x69;&#x74;&#x79;&#x29;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x28;&#x6e;&#x61;&#x6d;&#x65;&#x2c;&#x20;&#x70;&#x72;&#x69;&#x63;&#x65;&#x2c;&#x20;&#x71;&#x75;&#x61;&#x6e;&#x74;&#x69;&#x74;&#x79;&#x29;&#x20;&#x69;&#x6e;&#x20;&#x73;&#x68;&#x6f;&#x70;&#x70;&#x69;&#x6e;&#x67;&#x5f;&#x63;&#x61;&#x72;&#x74;&#x5d;</div></code></pre>
+
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q tax</code></pre>
+
+<h3 class="question" id="q4">Question 4: Shopping Total Cost</h3>
+
+
+
+<pre><code>def total_cost(shopping_cart):
+    &quot;&quot;&quot; Returns a float that is the total cost of all items in the shopping cart.
+    &gt;&gt;&gt; fruit_cart = [(&quot;apple&quot;, 0.5, 3), (&quot;banana&quot;, 0.25, 4)]
+    &gt;&gt;&gt; taxed_fruit = tax(fruit_cart, 10)
+    &gt;&gt;&gt; total_cost(taxed_fruit)
+    2.75
+    &gt;&gt;&gt; cal_cart = [(&quot;oski&quot;, 1000, 1), (&quot;go&quot;, 1.25, 2), (&quot;bears&quot;, 3.5, 2)]
+    &gt;&gt;&gt; taxed_cart = tax(cal_cart, 100)
+    &gt;&gt;&gt; total_cost(taxed_cart)
+    2019.0
+    &quot;&quot;&quot;
+<div class="alt 8">    "*** YOUR CODE HERE ***"
+    
+</div><div class="solution 8">&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x73;&#x75;&#x6d;&#x28;&#x5b;&#x70;&#x72;&#x69;&#x63;&#x65;&#x2a;&#x71;&#x75;&#x61;&#x6e;&#x74;&#x69;&#x74;&#x79;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x28;&#x6e;&#x61;&#x6d;&#x65;&#x2c;&#x20;&#x70;&#x72;&#x69;&#x63;&#x65;&#x2c;&#x20;&#x71;&#x75;&#x61;&#x6e;&#x74;&#x69;&#x74;&#x79;&#x29;&#x20;&#x69;&#x6e;&#x20;&#x73;&#x68;&#x6f;&#x70;&#x70;&#x69;&#x6e;&#x67;&#x5f;&#x63;&#x61;&#x72;&#x74;&#x5d;&#x29;</div></code></pre>
+
+
+    <button id='8' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q total_cost</code></pre>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#inheritance">Inheritance</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Mint</a></li>
+  <li><a href="#q2">Question 2: Quidditch</a></li>
+</ul>
+
+  <li><a href="#optional-list-review">Optional List Review</a></li>
+  <ul>
+  <li><a href="#q3">Question 3: Shopping Tax</a></li>
+  <li><a href="#q4">Question 4: Shopping Total Cost</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+<!-- <script src="//code.jquery.com/jquery-latest.js"></script> -->
+<!-- <script>
+  $(function() {
+    if (new Date("11/4/2022") < new Date()) {
+      $('.toggleButton').css('display', 'inline-block');
+      $('.toggleButton').click(function() {
+        var solution_id = $(this).attr('id');
+        $('div.' + solution_id).slideToggle(600);
+      });
+    }
+    // Always display these toggle buttons
+    $('.toggleButtonShow').click(function() {
+      var solution_id = $(this).attr('id');
+      $('div.' + solution_id).slideToggle(600);
+    });
+  });
+</script> -->
+  </body>
+</html>

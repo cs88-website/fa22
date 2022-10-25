@@ -1,0 +1,20 @@
+{
+    "name": "Homework 8",
+    "endpoint": "cal/cs88/fa22/hw08",
+    "src": [
+        "hw08.py"
+    ],
+    "tests": {
+        "hw08.py:Error": "doctest",
+        "hw08.py:SyntaxError": "doctest",
+        "hw08.py:ZeroDivisionError": "doctest",
+        "hw08.py:CheckingAccount": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "grading",
+        "backup"
+    ]
+}
