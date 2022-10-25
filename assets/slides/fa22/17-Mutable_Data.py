@@ -156,3 +156,33 @@ withdraw(25)
 withdraw(25)
 withdraw(25)
 withdraw(50)
+
+
+counter = 0
+def count_fun():
+    global counter
+    counter += 1
+    return counter
+
+count_fun()
+count_fun()
+
+
+def make_counter():
+    counter = 0
+    def counts():
+        nonlocal counter
+        counter +=1
+        return counter
+    return counts
+
+count_fun = make_counter()
+count_fun()
+1
+count_fun()
+# 2
+another_one = make_counter()
+another_one()
+1
+count_fun()
+3
