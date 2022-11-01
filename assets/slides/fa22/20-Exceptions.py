@@ -25,7 +25,7 @@ def get_age_in_days():
         assert age > 0, "Negative age, really?"
         age_in_days = age * 365 + (age // 4)
         if age_in_days < (365 * 10):
-            raise CS88Error('Are you sure you want to take CS88?')
+            raise CS88Error('You seem young!')
         print(f"your age in days: {age_in_days}")
     except AssertionError:
         print("Need an age > 0")
