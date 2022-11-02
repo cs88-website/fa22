@@ -1,0 +1,21 @@
+{
+    "name": "Lab 9",
+    "endpoint": "cal/cs88/fa22/lab09",
+    "src": [
+        "lab09.py"
+    ],
+    "tests": {
+      "tests/link.py": "ok_test",
+      "lab09.py:list_to_link": "doctest",
+      "lab09.py:reverse": "doctest",
+      "lab09.py:avoid_keyerror": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Homework 9",
+    "endpoint": "cal/cs88/fa22/hw09",
+    "src": [
+        "hw09.py"
+    ],
+    "tests": {
+        "hw09.py:link_to_list": "doctest",
+        "hw09.py:every_other": "doctest",
+        "hw09.py:slice_link": "doctest",
+        "hw09.py:deep_map": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "grading",
+        "backup"
+    ]
+}
