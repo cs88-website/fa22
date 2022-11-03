@@ -271,45 +271,45 @@ names[2]
 
 # A final expanded Link Class
 
-# class Link:
-#     """A linked list.
-#     >>> s = Link(3, Link(4, Link(5)))
-#     >>> len(s)
-#     3
-#     >>> s[2]
-#     5
-#     >>> s
-#     Link(3, Link(4, Link(5)))
-#     """
-#     empty = ()
+class Link:
+    """A linked list.
+    >>> s = Link(3, Link(4, Link(5)))
+    >>> len(s)
+    3
+    >>> s[2]
+    5
+    >>> s
+    Link(3, Link(4, Link(5)))
+    """
+    empty = ()
 
-#     def __init__(self, first, rest=empty):
-#         assert rest is Link.empty or isinstance(rest, Link)
-#         self.first = first
-#         self.rest = rest
+    def __init__(self, first, rest=empty):
+        assert rest is Link.empty or isinstance(rest, Link)
+        self.first = first
+        self.rest = rest
 
-#     def __getitem__(self, i):
-#         if i == 0:
-#             return self.first
-#         else:
-#             return self.rest[i-1]
+    def __getitem__(self, i):
+        if i == 0:
+            return self.first
+        else:
+            return self.rest[i-1]
 
-#     def __len__(self):
-#         return 1 + len(self.rest)
+    def __len__(self):
+        return 1 + len(self.rest)
 
-#     def __repr__(self):
-#         if self.rest:
-#             rest_str = ', ' + repr(self.rest)
-#         else:
-#             rest_str = ''
-#         return 'Link({0}{1})'.format(self.first, rest_str)
+    def __repr__(self):
+        if self.rest:
+            rest_str = ', ' + repr(self.rest)
+        else:
+            rest_str = ''
+        return 'Link({0}{1})'.format(self.first, rest_str)
 
-#     def __setattr__(self, name, value):
-#         # Assert that self.rest is always a kind of Link() if we set it directly.
-#         # https://docs.python.org/3/reference/datamodel.html#object.__setattr__
-#         if name == 'rest':
-#             assert value is Link.empty or isinstance(value, Link)
-#         self.__dict__[name] = value
+    def __setattr__(self, name, value):
+        # Assert that self.rest is always a kind of Link() if we set it directly.
+        # https://docs.python.org/3/reference/datamodel.html#object.__setattr__
+        if name == 'rest':
+            assert value is Link.empty or isinstance(value, Link), "More Info..."
+        self.__dict__[name] = value
 
 
 # #

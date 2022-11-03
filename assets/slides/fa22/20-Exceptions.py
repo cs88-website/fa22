@@ -34,5 +34,6 @@ def get_age_in_days():
         raise e
     except:
         print("Need a valid age")
+    print('Done!')
 
 # get_age_in_days()
