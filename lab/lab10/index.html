@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="/fa22/assets/css/lab.css" />
+
+
+    <title>CS88 | Lab 10: Trees | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <div class="row row-no-gutters">
+  <div class="col-md-8">
+      <h1 class="content-title-brand" style="padding-top: 0;">
+          Lab 10: Trees
+          <br>
+          <small><i>Due at 11:59:59 pm on 11/15/2022.</i></small>
+      </h1>
+  </div>
+  <div class="col-md-4">
+      <a class="h1 btn btn-lg" href="lab10.zip">lab10.zip</a>
+  </div>
+</div>
+    </div>
+
+    <h2 id='starter-files'>Starter Files</h2>
+
+<p>Download <a href="lab10.zip">lab10.zip</a>.
+Inside the archive, you will find starter files for the questions in this lab,
+  along with a copy of the OK autograder.</p>
+
+<h2 id='submission'>Submission</h2>
+
+<p>By the end of this lab, you should have submitted the lab with <code>python3 ok --submit</code>. You may submit more than once before the deadline; only the final submission will be graded. Check that you have successfully submitted your code on <a href="https://okpy.org">okpy.org</a>.</p>
+
+
+
+    
+
+
+<h2 id="trees">Trees</h2>
+
+
+<h3 class="question" id="q1">Question 1: Search</h3>
+
+<p>Write a function <code>search</code> that returns the <code>Tree</code>, whose root node is the given <code>item</code>. If no node is equal to <code>item</code>, return None. You can assume all values are unique.</p>
+
+
+
+<pre><code>def search(t, item):
+    &quot;&quot;&quot;Searches for and returns the Tree whose value is equal to item if
+    it exists and None if it does not. Assume unique values.
+
+    &gt;&gt;&gt; t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
+    &gt;&gt;&gt; search(t, 10)
+    &gt;&gt;&gt; search(t, 5)
+    Tree(5)
+    &gt;&gt;&gt; search(t, 1)
+    Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
+    &gt;&gt;&gt; search(t, 7)
+    Tree(7)
+    &quot;&quot;&quot;
+<div class="alt 1">    "*** YOUR CODE HERE ***"
+</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x74;&#x2e;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x20;&#x3d;&#x3d;&#x20;&#x69;&#x74;&#x65;&#x6d;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x20;&#x69;&#x6e;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x3d;&#x20;&#x73;&#x65;&#x61;&#x72;&#x63;&#x68;&#x28;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x2c;&#x20;&#x69;&#x74;&#x65;&#x6d;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x69;&#x73;&#x20;&#x6e;&#x6f;&#x74;&#x20;&#x4e;&#x6f;&#x6e;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;</div></code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q search</code></pre>
+
+<h3 class="question" id="q2">Question 2: Cumulative Sum</h3>
+
+<p>Write a function <code>cumulative_sum</code> that returns a new <code>Tree</code>, where each value is the sum of all values in the corresponding subtree of the old <code>Tree</code>.</p>
+
+
+
+<pre><code>def cumulative_sum(t):
+    &quot;&quot;&quot;Return a new Tree, where each value is the sum of all values in the
+    corresponding subtree of t.
+
+    &gt;&gt;&gt; t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
+    &gt;&gt;&gt; cumulative = cumulative_sum(t)
+    &gt;&gt;&gt; t
+    Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
+    &gt;&gt;&gt; cumulative
+    Tree(16, [Tree(8, [Tree(5)]), Tree(7)])
+    &gt;&gt;&gt; cumulative_sum(Tree(1))
+    Tree(1)
+    &quot;&quot;&quot;
+<div class="alt 2">    "*** YOUR CODE HERE ***"
+</div><div class="solution 2">&#x20;&#x20;&#x20;&#x20;&#x73;&#x75;&#x62;&#x74;&#x72;&#x65;&#x65;&#x73;&#x20;&#x3d;&#x20;&#x5b;&#x63;&#x75;&#x6d;&#x75;&#x6c;&#x61;&#x74;&#x69;&#x76;&#x65;&#x5f;&#x73;&#x75;&#x6d;&#x28;&#x73;&#x74;&#x29;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x73;&#x74;&#x20;&#x69;&#x6e;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x5d;&#xa;&#x20;&#x20;&#x20;&#x20;&#x6e;&#x65;&#x77;&#x5f;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x20;&#x3d;&#x20;&#x73;&#x75;&#x6d;&#x28;&#x73;&#x74;&#x2e;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x73;&#x74;&#x20;&#x69;&#x6e;&#x20;&#x73;&#x75;&#x62;&#x74;&#x72;&#x65;&#x65;&#x73;&#x29;&#x20;&#x2b;&#x20;&#x74;&#x2e;&#x76;&#x61;&#x6c;&#x75;&#x65;&#xa;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x54;&#x72;&#x65;&#x65;&#x28;&#x6e;&#x65;&#x77;&#x5f;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x2c;&#x20;&#x73;&#x75;&#x62;&#x74;&#x72;&#x65;&#x65;&#x73;&#x29;</div></code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q cumulative_sum</code></pre>
+
+<h3 class="question" id="q3">Question 3: Add Leaves</h3>
+
+<p>Implement <code>add_d_leaves</code>, a function that takes in a <code>Tree</code> instance <code>t</code> and
+mutates it so that at each depth <code>d</code> in the tree, <code>d</code> leaves with labels <code>v</code>
+are added to each node at that depth. For example, we want to add 1 leaf with
+<code>v</code> in it to each node at depth 1, 2 leaves to each node at depth 2, and so on.</p>
+
+<p>Recall that the depth of a node is the number of edges from that node to the
+root, so the depth of the root is 0. The leaves should be added to the end of
+the list of branches.</p>
+
+
+
+<pre><code>def add_d_leaves(t, v):
+    &quot;&quot;&quot;Add d leaves containing v to each node at every depth d.
+
+    &gt;&gt;&gt; t1 = Tree(1, [Tree(3)])
+    &gt;&gt;&gt; add_d_leaves(t1, 4)
+    &gt;&gt;&gt; t1
+    Tree(1, [Tree(3, [Tree(4)])])
+    &gt;&gt;&gt; t2 = Tree(2, [Tree(5), Tree(6)])
+    &gt;&gt;&gt; t3 = Tree(3, [t1, Tree(0), t2])
+    &gt;&gt;&gt; add_d_leaves(t3, 10)
+    &gt;&gt;&gt; print(t3)
+    3
+      1
+        3
+          4
+            10
+            10
+            10
+          10
+          10
+        10
+      0
+        10
+      2
+        5
+          10
+          10
+        6
+          10
+          10
+        10
+    &quot;&quot;&quot;
+    def add_leaves(t, d):
+<div class="alt 3">        "*** YOUR CODE HERE ***"
+</div><div class="solution 3">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x62;&#x20;&#x69;&#x6e;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x61;&#x64;&#x64;&#x5f;&#x6c;&#x65;&#x61;&#x76;&#x65;&#x73;&#x28;&#x62;&#x2c;&#x20;&#x64;&#x20;&#x2b;&#x20;&#x31;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x2e;&#x65;&#x78;&#x74;&#x65;&#x6e;&#x64;&#x28;&#x5b;&#x54;&#x72;&#x65;&#x65;&#x28;&#x76;&#x29;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x5f;&#x20;&#x69;&#x6e;&#x20;&#x72;&#x61;&#x6e;&#x67;&#x65;&#x28;&#x64;&#x29;&#x5d;&#x29;</div>    add_leaves(t, 0)</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q add_d_leaves</code></pre>
+<!-- 
+<explanation>
+A first thought is to recursively call <code>add_d_leaves</code> on each branch to add the
+leaves to the branches. However, notice that each recursive call would need to
+know what the current depth is in order to add that many leaves. We could try
+initializing a variable within the body of the function, but by now we know
+that in order to keep track of changing values across recursive calls we should
+use a helper function!
+
+<p>The helper function should take in a tree and a depth value, and we will define
+it as a function that adds <code>d</code> leaves to the branches of the root node, <code>d + 1</code>
+leaves to the branches of each of the root node's branches, and so on:</p>
+
+<pre><code>def add_leaves(t, d):
+    &quot;&quot;&quot;Adds a number of leaves to each node in t equivalent to the depth of
+    the node, assuming that the root node is at depth d, the children of
+    the root node are at depth d + 1, and so on.&quot;&quot;&quot;
+    ...</code></pre>
+
+<p>We don't need a parameter for <code>v</code> since that value won't change and we can
+access it from the parent frame. With this function defined as such, we can
+call <code>add_leaves</code> with arguments <code>t</code> and 0 to add leaves starting at depth 0.</p>
+
+<pre><code>def add_d_leaves(t, v):
+    def add_leaves(t, d):
+        &quot;&quot;&quot;Adds a number of leaves to each node in t equivalent to the depth of
+        the node, assuming that the root node is at depth d, the children of
+        the root node are at depth d + 1, and so on.&quot;&quot;&quot;
+        ...
+    add_leaves(t, 0)</code></pre>
+
+<p>Inside the helper function, we can now call it recursively on each branch.
+Each node's branch is one depth level greater than the node itself, so we
+should update <code>d</code> to <code>d + 1</code>:</p>
+
+<pre><code>def add_leaves(t, d):
+    for b in t.branches:
+        add_leaves(b, d + 1)
+    ...</code></pre>
+
+<p>Now that we've made these recursive calls, let's take a step back and look
+at our progress. Taking the leap of faith, we know that each recursive call
+should've successfully added the correct number of leaves at each node in
+each branch. That means that the only step left is to add the correct number
+of leaves to the current node!</p>
+
+<p>The parameter <code>d</code> tells us how many leaves to add at this node. Since we are
+mutating <code>t</code> to add these leaves, we need to mutate the list of <code>t</code>'s branches.
+We know a few different ways to mutatively add elements to a list:<code>insert</code>,
+<code>append</code>, and <code>extend</code>. Which one makes most sense to use here? Well, we know that
+we have to add <code>d</code> elements to the end of <code>t.branches</code>. Index doesn't matter
+so we can rule out <code>insert</code>. <code>append</code> is good for adding a single element, while
+<code>extend</code> is useful for adding multiple elements contained in a list, so let's
+use <code>extend</code>!</p>
+
+<p>The input to <code>extend</code> should be a list, so how do we create a list with the
+leaves that we need? The most concise way is with a list comprehension. To
+create each leaf, we call <code>Tree(v)</code>:</p>
+
+<pre><code>[Tree(v) for _ in range(d)]</code></pre>
+
+<p>Now, we just have to extend <code>t.branches</code> by this list:</p>
+
+<pre><code>def add_leaves(t, d):
+    for b in t.branches:
+        add_leaves(b, d + 1)
+    t.branches.extend([Tree(v) for _ in range(d)])</code></pre>
+
+<p>Do we need an explicitly base case? Let's take a look at what happens when <code>t</code>
+is a leaf. In that case, <code>t.branches</code> would be an empty list, so we would not
+enter the <code>for</code> loop. Then, the function will extend <code>t.branches</code>, which is an
+empty list, by a list containing the new leaves. This is exactly the desired
+result, so no base case is needed!
+</explanation> --></p>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#trees">Trees</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Search</a></li>
+  <li><a href="#q2">Question 2: Cumulative Sum</a></li>
+  <li><a href="#q3">Question 3: Add Leaves</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+<!-- <script src="//code.jquery.com/jquery-latest.js"></script> -->
+<!-- <script>
+  $(function() {
+    if (new Date("11/18/2022") < new Date()) {
+      $('.toggleButton').css('display', 'inline-block');
+      $('.toggleButton').click(function() {
+        var solution_id = $(this).attr('id');
+        $('div.' + solution_id).slideToggle(600);
+      });
+    }
+    // Always display these toggle buttons
+    $('.toggleButtonShow').click(function() {
+      var solution_id = $(this).attr('id');
+      $('div.' + solution_id).slideToggle(600);
+    });
+  });
+</script> -->
+  </body>
+</html>
