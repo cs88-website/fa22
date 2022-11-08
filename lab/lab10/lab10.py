@@ -29,8 +29,8 @@ class Tree:
 
 
 # Q1
-def search(t, item):
-    """Searches for and returns the Tree whose value is equal to item if
+def search(t, value):
+    """Searches for and returns the Tree whose value is equal to value if
     it exists and None if it does not. Assume unique values.
 
     >>> t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])

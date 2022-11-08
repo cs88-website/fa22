@@ -89,12 +89,12 @@ Inside the archive, you will find starter files for the questions in this lab,
 
 <h3 class="question" id="q1">Question 1: Search</h3>
 
-<p>Write a function <code>search</code> that returns the <code>Tree</code>, whose root node is the given <code>item</code>. If no node is equal to <code>item</code>, return None. You can assume all values are unique.</p>
+<p>Write a function <code>search</code> that returns the <code>Tree</code>, whose root node is the given value if it exists and None if it does not. You can assume all values are unique.</p>
 
 
 
-<pre><code>def search(t, item):
-    &quot;&quot;&quot;Searches for and returns the Tree whose value is equal to item if
+<pre><code>def search(t, value):
+    &quot;&quot;&quot;Searches for and returns the Tree whose value is equal to value if
     it exists and None if it does not. Assume unique values.
 
     &gt;&gt;&gt; t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
@@ -107,7 +107,7 @@ Inside the archive, you will find starter files for the questions in this lab,
     Tree(7)
     &quot;&quot;&quot;
 <div class="alt 1">    "*** YOUR CODE HERE ***"
-</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x74;&#x2e;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x20;&#x3d;&#x3d;&#x20;&#x69;&#x74;&#x65;&#x6d;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x20;&#x69;&#x6e;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x3d;&#x20;&#x73;&#x65;&#x61;&#x72;&#x63;&#x68;&#x28;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x2c;&#x20;&#x69;&#x74;&#x65;&#x6d;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x69;&#x73;&#x20;&#x6e;&#x6f;&#x74;&#x20;&#x4e;&#x6f;&#x6e;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;</div></code></pre>
+</div><div class="solution 1">&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x74;&#x2e;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x20;&#x3d;&#x3d;&#x20;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x66;&#x6f;&#x72;&#x20;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x20;&#x69;&#x6e;&#x20;&#x74;&#x2e;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x65;&#x73;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x3d;&#x20;&#x73;&#x65;&#x61;&#x72;&#x63;&#x68;&#x28;&#x62;&#x72;&#x61;&#x6e;&#x63;&#x68;&#x2c;&#x20;&#x76;&#x61;&#x6c;&#x75;&#x65;&#x29;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x69;&#x66;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#x20;&#x69;&#x73;&#x20;&#x6e;&#x6f;&#x74;&#x20;&#x4e;&#x6f;&#x6e;&#x65;&#x3a;&#xa;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x72;&#x65;&#x73;&#x75;&#x6c;&#x74;&#xa;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;</div></code></pre>
 
 
     <button id='1' class='toggleButton'>
