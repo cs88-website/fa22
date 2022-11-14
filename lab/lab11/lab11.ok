@@ -1,0 +1,25 @@
+{
+    "name": "Lab 11",
+    "endpoint": "cal/cs88/fa22/lab11",
+    "src": [
+        "lab11.py",
+        "tests/does_it_work.py",
+        "tests/generators.py"
+    ],
+    "tests": {
+        "tests/does_it_work.py": "ok_test",
+        "tests/generators.py": "ok_test",
+        "lab11.py:countdown": "doctest",
+        "lab11.py:Countdown": "doctest",
+        "lab11.py:scale": "doctest",
+        "lab11.py:pairs": "doctest"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
