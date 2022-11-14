@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="/fa22/assets/css/hw.css"/>
+
+
+    <title>Homework 11 | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <div class="row row-no-gutters">
+    <div class="col-md-8">
+        <h1 class="content-title-brand" style="padding-top: 0;">
+            Homework 11
+            <br>
+            <small><i>Due at 11:59:59 pm on Thursday, 12/1/2022.</i></small>
+        </h1>
+    </div>
+    <div class="col-md-4">
+        <a class="h1 btn btn-lg" href="hw11.zip">hw11.zip</a>
+    </div>
+</div>
+    </div>
+
+    <h2>Instructions</h2>
+
+<p>Download <a href="hw11.zip"> hw11.zip</a>.
+    Inside the archive, you will find starter files for the questions in this homework,
+    along with a copy of the OK autograder.</p>
+
+<p><strong>Submission:</strong> When you are done, submit with <code>python3 ok --submit</code>. You may submit more than once before the deadline; only the final submission will be scored. Check that you have successfully submitted your code on <a href="https://okpy.org">okpy.org</a>.</p>
+
+<p><strong>Readings:</strong> This homework relies on following references:</p>
+
+<ul>
+  <li><a href="http://composingprograms.com/pages/42-implicit-sequences.html">Section 4.2</a></li>
+</ul>
+
+    
+
+
+<h2 id="iterator-generator-questions">Iterator/Generator Questions</h2>
+
+<h3 class="question" id="q1">Question 1: Restart</h3>
+
+<p>Implement an iterator class called <code>IteratorRestart</code> that will reset to the beginning when <code>__iter__</code> is called again.</p>
+
+<solution>
+
+<pre><code>class IteratorRestart:
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; iterator = IteratorRestart(2, 7)
+    &gt;&gt;&gt; for num in iterator:
+    ...     print(num)
+    2
+    3
+    4
+    5
+    6
+    7
+    &gt;&gt;&gt; for num in iterator:
+    ...     print(num)
+    2
+    3
+    4
+    5
+    6
+    7
+    &quot;&quot;&quot;
+    def __init__(self, start, end):
+        "*** YOUR CODE HERE ***"
+
+    def __next__(self):
+        "*** YOUR CODE HERE ***"
+
+    def __iter__(self):
+        "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q IteratorRestart</code></pre>
+
+<h3 class="question" id="q2">Question 2: Hailstone</h3>
+
+<p>Write a generator that outputs the hailstone sequence from Lab 01.</p>
+
+<p>Here's a quick remainder of how the hailstone sequence is defined:</p>
+
+<ol>
+  <li>Pick a positive integer <code>n</code> as the start.</li>
+  <li>If <code>n</code> is even, divide it by 2.</li>
+  <li>If <code>n</code> is odd, multiply it by 3 and add 1.</li>
+  <li>Continue this process until <code>n</code> is 1.</li>
+</ol>
+
+<solution>
+
+<pre><code>def hailstone(n):
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; for num in hailstone(10):
+    ...     print(num)
+    ...
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q hailstone</code></pre>
+
+<h3 class="question" id="q3">Question 3: Generate permutations</h3>
+
+<p>Given a list of unique elements, a <em>permutation</em> of the list is a
+reordering of the elements. For example, <code>[2, 1, 3]</code>, <code>[1, 3, 2]</code>, and
+<code>[3, 2, 1]</code> are all permutations of the list <code>[1, 2, 3]</code>.</p>
+
+<p>Implement <code>generate_perms</code>, a generator function which takes in a <code>lst</code> and yields   all the unique permutations of <code>lst</code> one at a time (see doctest for examples).</p>
+
+<solution>
+
+<pre><code>def generate_perms(lst):
+    &quot;&quot;&quot;
+    Generates the permutations of lst one by one.
+    &gt;&gt;&gt; perms = generate_perms([1, 2, 3])
+    &gt;&gt;&gt; hasattr(perms, &#x27;__next__&#x27;)
+    True
+    &gt;&gt;&gt; p = list(perms)
+    &gt;&gt;&gt; p.sort()
+    &gt;&gt;&gt; p
+    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+    &quot;&quot;&quot;
+    "*** YOUR CODE HERE ***"</code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q generate_perms</code></pre>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#iterator-generator-questions">Iterator/Generator Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Restart</a></li>
+  <li><a href="#q2">Question 2: Hailstone</a></li>
+  <li><a href="#q3">Question 3: Generate permutations</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+
+  </body>
+</html>
