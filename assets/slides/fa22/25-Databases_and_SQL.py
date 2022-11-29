@@ -1,5 +1,5 @@
 # https://docs.python.org/3/library/sqlite3.html
-DB_FILENAME = '23-Databases_and_SQL.db'
+DB_FILENAME = '25-Databases_and_SQL.db'
 
 import sqlite3
 # Talking to the database happens through a "connection"
@@ -7,11 +7,11 @@ con = sqlite3.connect(DB_FILENAME)
 # A cursor is the object we use to execute a query.
 cur = con.cursor()
 
-# This returns an iterator!
-cur.execute("YOUR QUERY")
+# # This returns an iterator!
+# cur.execute("YOUR QUERY")
 
-# Save (commit) the changes
-con.commit()
+# # Save (commit) the changes
+# con.commit()
 
 # We can also close the connection if we are done with it.
 # Just be sure any changes have been committed or they will be lost.

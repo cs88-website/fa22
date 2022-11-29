@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content ="CS88: Computational Structures in Data Science" />
+    <meta name="keywords" content ="CS88, Computer Science, Data Science, Programming, Berkeley, EECS" />
+    <meta name="author" content ="Michael Ball, Anjali Gurajapu, Jessica Lin, Tommy Joseph, Lukas Chang, Karim Kaylani, Hetal Shah, Sebastian Zhao, Amit Sant, Michelle Chen, Christine Zhang, Ethan Yoo, Joanna Yoo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/fa22/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/style.css">
+    <link rel="icon" href="/fa22/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/fa22/assets/css/mono-blue.css">
+
+    <link rel="stylesheet" type="text/css" href="/fa22/assets/css/resource.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/hw.css"/>
+
+
+    <title>Homework 2 Solutions | CS 88 Fall 2022</title>
+
+  </head>
+
+  <body id="index" class="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section" aria-label="Toggle Nav Menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/fa22/">CS 88</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/fa22/">Calendar</a></li>
+            <li><a href="/fa22/articles/resources.html">Resources</a></li>
+            <li><a href="/fa22/weekly-schedule.html">Google Calendar</a></li>
+            <li><a href="/fa22/articles/about.html">Syllabus</a></li>
+            <li><a href="https://edstem.org/us/courses/25294/" target="_blank">Ed</a></li>
+            <li><a href="/fa22/staff.html">Staff</a></li>
+            <li><a href="https://oh.c88c.org/" target="_blank">OH Queue</a></li>
+            <li><a href="https://tutor.cs61a.org/" target="_blank">Python Tutor</a></li>
+            <li><a href="https://bcourses.berkeley.edu/courses/1518009/external_tools/78985" target="_blank">Recordings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <div id="content" class="container">
+      <div class='row'>
+  <div class='col-md-9'>
+    <div class='page-header'>
+      <span class="content-title-brand">Homework 2</span> Solutions
+    </div>
+
+    <p><strong>Solutions:</strong> You can find the file with solutions for all
+questions <a href="hw02.py">here</a>.</p>
+
+    
+
+
+<h2 id="questions">Questions</h2>
+
+
+<h3 class="question" id="q1">Question 1: Fibonacci</h3>
+
+<p>The Fibonacci sequence is a famous sequence in mathematics. The first
+element in the sequence is 0 and the second element is 1. The <em>n</em>th
+element is defined as <em>F<sub>n</sub> = F<sub>n-1</sub> +
+F<sub>n-2</sub></em>.</p>
+
+<p>Implement the <code>fib</code> function, which takes an integer <code>n</code> and returns
+the <code>n</code>th Fibonacci number. Use a <code>while</code> loop in your solution.</p>
+
+<solution>
+
+<pre><code>def fib(n):
+    &quot;&quot;&quot;Returns the nth Fibonacci number.
+
+    &gt;&gt;&gt; fib(0)
+    0
+    &gt;&gt;&gt; fib(1)
+    1
+    &gt;&gt;&gt; fib(2)
+    1
+    &gt;&gt;&gt; fib(3)
+    2
+    &gt;&gt;&gt; fib(4)
+    3
+    &gt;&gt;&gt; fib(5)
+    5
+    &gt;&gt;&gt; fib(6)
+    8
+    &gt;&gt;&gt; fib(100)
+    354224848179261915075
+    &quot;&quot;&quot;
+<span class="sol-highlight">    curr, next = 0, 1
+    while n &gt; 0:
+        curr, next = next, curr + next
+        n &#x2d;= 1
+    return curr</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q fib</code></pre>
+
+<h3 class="question" id="q2">Question 2: Nonzero</h3>
+
+<p>Write a function that takes in a list and returns the first nonzero entry.</p>
+
+<solution>
+
+<pre><code>def nonzero(lst):
+    &quot;&quot;&quot; Returns the first nonzero element of a list
+
+    &gt;&gt;&gt; nonzero([1, 2, 3])
+    1
+    &gt;&gt;&gt; nonzero([0, 1, 2])
+    1
+    &gt;&gt;&gt; nonzero([0, 0, 0, 0, 0, 0, 5, 0, 6])
+    5
+    &quot;&quot;&quot;
+<span class="sol-highlight">    for i in lst:
+        if i != 0:
+            return i</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q nonzero</code></pre>
+
+<h3 class="question" id="q3">Question 3: Contains N</h3>
+
+<p>Write a function that takes in a list and a number, and returns whether or not the list contains the value n.
+<br/>
+
+<solution></p>
+
+<pre><code>def has_n(lst, n):
+    &quot;&quot;&quot; Returns whether or not a list contains the value n.
+
+    &gt;&gt;&gt; has_n([1, 2, 2], 2)
+    True
+    &gt;&gt;&gt; has_n([0, 1, 2], 3)
+    False
+    &gt;&gt;&gt; has_n([], 5)
+    False
+    &quot;&quot;&quot;
+<span class="sol-highlight">    for elem in lst:
+        if elem == n:
+            return True
+    return False</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q has_n</code></pre>
+
+<h3 class="question" id="q4">Question 4: Total Price</h3>
+
+<p>Implement the function <code>total_price</code>, which takes in a list of prices of individual products and needs to find the total price. Unfortunately,  any product that is priced greater than or equal to $20 has a 50 percent tax, so include that in the final price.</p>
+
+<p>Try to do this in one line!</p>
+
+<p>Cast your final answer to an <strong>integer</strong> to avoid floating point precision errors. For example, if <code>x</code> contains your final answer, <code>return int(x)</code>!</p>
+
+<solution>
+
+<pre><code>def total_price(prices):
+    &quot;&quot;&quot;
+    Finds the total price of all products in prices including a
+    50% tax on products with a price greater than or equal to 20.
+    &gt;&gt;&gt; total_price([5, 20, 30, 7])
+    87
+    &gt;&gt;&gt; total_price([8, 4, 3])
+    15
+    &gt;&gt;&gt; total_price([10, 100, 4])
+    164
+    &quot;&quot;&quot;
+<span class="sol-highlight">    return int(sum([x if x &lt; 20 else 1.5*x for x in prices]))</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q total_price</code></pre>
+
+<h3 class="question" id="q5">Question 5: arange</h3>
+
+<p>Implement the function <code>arange</code>, which behaves just like np.arange(start, end, step) from Data 8. You only need to support positive values for step.</p>
+
+<solution>
+
+<pre><code>def arange(start, end, step=1):
+    &quot;&quot;&quot;
+    arange behaves just like np.arange(start, end, step).
+    You only need to support positive values for step.
+
+    &gt;&gt;&gt; arange(1, 3)
+    [1, 2]
+    &gt;&gt;&gt; arange(0, 25, 2)
+    [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+    &gt;&gt;&gt; arange(999, 1231, 34)
+    [999, 1033, 1067, 1101, 1135, 1169, 1203]
+
+    &quot;&quot;&quot;
+<span class="sol-highlight">    return [n for n in range(start, end, step)]</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q arange</code></pre>
+
+<h3 class="question" id="q6">Question 6: Reverse (iteratively)</h3>
+
+<p>Write a function <code>reverse_iter_for</code> that takes a list and returns a new
+list that is the reverse of the original using a <code>for</code> loop. You should not
+need any indexing notation.</p>
+
+<solution>
+
+<pre><code>def reverse_iter_for(lst):
+    &quot;&quot;&quot;Returns the reverse of the given list.
+
+    &gt;&gt;&gt; reverse_iter_for([1, 2, 3, 4])
+    [4, 3, 2, 1]
+    &quot;&quot;&quot;
+<span class="sol-highlight">    rev_lst = []
+    for e in lst:
+        rev_lst = [e] + rev_lst
+    return rev_lst</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q reverse_iter_for</code></pre>
+
+<p>Complete the function <code>reverse_iter_while</code> that behaves identically to
+<code>reverse_iter_for</code> but is implemented as using a <code>while</code> loop.
+You may use indexing or slicing notation. Do not use <code>lst[::&#x2d;1]</code>!</p>
+
+<solution>
+
+<pre><code>def reverse_iter_while(lst):
+    &quot;&quot;&quot;Returns the reverse of the given list.
+
+    &gt;&gt;&gt; reverse_iter_while([1, 2, 3, 4])
+    [4, 3, 2, 1]
+    &quot;&quot;&quot;
+    rev_lst, i = [], 0
+    while i &lt; len(lst):
+<span class="sol-highlight">        rev_lst = [lst[i]] + rev_lst
+        i += 1
+    return rev_lst</span></code></pre>
+
+</solution>
+
+<p>Use OK to test your code:</p><pre><code>python3 ok -q reverse_iter_while</code></pre>
+
+
+<h2 id="submit">Submit</h2>
+
+
+<p>Make sure to submit this assignment by running:</p>
+
+<pre><code>python3 ok &#x2d;&#x2d;submit</code></pre>
+
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      <ul>
+  <li><a href="#questions">Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: Fibonacci</a></li>
+  <li><a href="#q2">Question 2: Nonzero</a></li>
+  <li><a href="#q3">Question 3: Contains N</a></li>
+  <li><a href="#q4">Question 4: Total Price</a></li>
+  <li><a href="#q5">Question 5: arange</a></li>
+  <li><a href="#q6">Question 6: Reverse (iteratively)</a></li>
+</ul>
+
+  <li><a href="#submit">Submit</a></li>
+</ul>
+
+    </nav>
+  </div>
+
+</div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/fa22/assets/js/bootstrap.min.js"></script>
+    <!-- TODO: Move to specific pages... -->
+    <script src="/fa22/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+    offset: 40
+  });
+</script>
+
+  </body>
+</html>
