@@ -1,6 +1,6 @@
 test = {
   'name': 'track_count',
-  'points': 0,
+  'points': 1,
   'suites': [
     {
       'cases': [

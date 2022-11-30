@@ -1,6 +1,6 @@
 test = {
   'name': 'busiest_artists',
-  'points': 0,
+  'points': 1,
   'suites': [
     {
       'cases': [
