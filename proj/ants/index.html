@@ -83,55 +83,23 @@
 
     <h2>Introduction</h2>
 
-<blockquote><h3 id="grading-updates">Grading Updates</h3>
-<<<<<<< HEAD
-
-<p>Parts 1, 2 and 3, are the only required parts.
-Submitting Parts 1, 2, and 3 will be worth 60 points.
-There will be no EC early submission points.
-There will be no composition grading, nor checkpoint, but a submission
-by the deadline will earn you 4 pts for the checkpoint, and 2 points for composition. (6 points total). You must complete phase 1 and phase to get the 8 points.
-Phases 1, 2, and 3 will be scaled to 54 points.
-Phase 4 will be EC for everyone, up to 70 points total. (Basically, <code>ants_score = min(70, raw_score*(54/41))</code>.)</p></blockquote>
-
-<strike>
-
-<blockquote><p><strong>Important submission note</strong>: For full credit,</p>
-
-<ul>
-  <li>Submit with Phase 1 and 2 complete by <strong>Sunday, November 20</strong> (worth 4 pts).</li>
-  <li>Submit with all phases complete by <strong>Thursday, December 1</strong>.
-  You can get 2 EC points by submitting the entire project by
-  <strong>Tuesday, November 29</strong>.
-  </strike></li>
-</ul>
-=======
-
-<p>Parts 1, 2 and 3, are the only required parts.
-Submitting Parts 1, 2, and 3 will be worth 60 points.
-There will be no EC early submission points.
-There will be no composition grading, nor checkpoint, but a submission
-by the deadline will earn you 4 pts for the checkpoint, and 2 points for composition. (6 points total). You must complete phase 1 and phase to get the 8 points.
-Phases 1, 2, and 3 will be scaled to 54 points.
-Phase 4 will be EC for everyone, up to 70 points total. (Basically, <code>ants_score = min(70, raw_score*(54/41))</code>.)</p>
-
-<p>~~<strong>Important submission note</strong>: For full credit,~~
-~~* Submit with Phase 1 and 2 complete by <strong>Sunday, November 20</strong> (worth 4 pts).~~
-~~* Submit with all phases complete by <strong>Thursday, December 1</strong>.~~</p>
->>>>>>> e0ec7be (Deploy website Tue Nov 29 20:50:05 PST 2022)
+<blockquote><p><strike><strong>Important submission note</strong>: For full credit,
+  <ul>
+    <li>Submit with Phase 1 and 2 complete by <strong>Sunday, November 20</strong> (worth 4 pts).</li>
+    <li>Submit with all phases complete by <strong>Thursday, December 1</strong>.</strike></li>
+  </ul>
+</p>
 
 <p>Try to attempt the problems in order, as some later problems will depend
 on earlier problems in their implementation and therefore also when
 running <code>ok</code> tests.</p>
 
-<<<<<<< HEAD
-<p>The entire project can be completed with a partner. Consider using Visual Studio Code <a href="https://code.visualstudio.com/learn/collaboration/live-share">Live Share</a> to synchronously work on code with your partner.</p></blockquote>
-=======
 <p>The entire project can be completed with a partner. Consider using Visual Studio Code <a href="https://code.visualstudio.com/learn/collaboration/live-share">Live Share</a> to synchronously work on code with your partner.</p>
 
-<p>~~You can get 2 EC points by submitting the entire project by~~
-~~<strong>Tuesday, November 29</strong>.~~</p></blockquote>
->>>>>>> e0ec7be (Deploy website Tue Nov 29 20:50:05 PST 2022)
+<p><strike>You can get 2 EC points by submitting the entire project by
+<strong>Tuesday, November 29</strong>.</strike></p>
+
+<p>The entire project is now due <strong>Monday, December 5</strong>. See <a href="#grading-updates">Grading Updates</a> below for more details.</p></blockquote>
 
 <p>In this project, you will create a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Tower_defense">tower defense</a> game called Ants Vs.
 SomeBees. As the ant queen, you populate your colony with the bravest ants you
@@ -190,16 +158,29 @@ assigned based on correctness for your final submission, and 2 points are for th
 2 points for composition,
 4 points for submitting Phase 1 and 2 by the checkpoint date</p></blockquote>
 
-<p>Additionally, there are some extra credit point opportunities.
+<p><strike>Additionally, there are some extra credit point opportunities.
 You can get 2 EC point for submitting the entire project by
 <strong>Tuesday, November 29</strong>, and
-2 EC points for submitting the extra credit problem.</p>
+2 EC points for submitting the extra credit problem.</strike></p>
 
-<blockquote><p><strong>Important:</strong>
+<blockquote><p><strike><strong>Important:</strong>
 In order to receive all of the extra credit points for Ants,
 your implementation of the entire project,
 including the EC problem,
-must be submitted by the early submission deadline.</p></blockquote>
+must be submitted by the early submission deadline.</strike></p></blockquote>
+
+
+<h3 id="grading-updates">Grading Updates</h3>
+
+
+<blockquote><p>Parts 1, 2 and 3, are the only required parts.
+Submitting Parts 1, 2, and 3 will be worth 60 points.
+There will be no EC early submission points.
+There will be no composition grading, nor checkpoint, but a submission
+by the deadline (<strong>Monday, December 5</strong>) will earn you 4 pts for the checkpoint, and 2 points for composition. (6 points total). 
+You must complete phase 1 and phase to get the 8 points.
+Phases 1, 2, and 3 will be scaled to 54 points.
+Phase 4 will be EC for everyone, up to 70 points total. (Basically, <code>ants_score = min(70, raw_score*(54/41))</code>).</p></blockquote>
 
 
 <p>You will turn in the following files:</p>
@@ -1543,7 +1524,59 @@ Davis.</p>
   <div class='col-md-3'>
     <nav class='hidden-print hidden-sm hidden-xs sidebar'>
       <ul>
+  <li><a href="#download-starter-files">Download starter files</a></li>
+  <li><a href="#logistics">Logistics</a></li>
+  <ul>
   <li><a href="#grading-updates">Grading Updates</a></li>
+</ul>
+
+  <li><a href="#the-game">The Game</a></li>
+  <ul>
+  <li><a href="#core-concepts">Core concepts</a></li>
+  <li><a href="#core-classes">Core classes</a></li>
+  <li><a href="#game-layout">Game Layout</a></li>
+  <li><a href="#object-map">Object map</a></li>
+  <li><a href="#playing-the-game">Playing the game</a></li>
+</ul>
+
+  <li><a href="#getting-started-videos">Getting Started Videos</a></li>
+  <li><a href="#phase-1-basic-gameplay">Phase 1: Basic gameplay</a></li>
+  <ul>
+  <li><a href="#problem-0-0-pt">Problem 0 (0 pt)</a></li>
+  <li><a href="#problem-1-3-pt">Problem 1 (3 pt)</a></li>
+  <li><a href="#problem-2-3-pt">Problem 2 (3 pt)</a></li>
+  <li><a href="#problem-3-3-pt">Problem 3 (3 pt)</a></li>
+</ul>
+
+  <li><a href="#phase-2-ants">Phase 2: Ants!</a></li>
+  <ul>
+  <li><a href="#problem-4-5-pt">Problem 4 (5 pt)</a></li>
+  <li><a href="#problem-5-7-pt">Problem 5 (7 pt)</a></li>
+</ul>
+
+  <li><a href="#phase-3-more-ants">Phase 3: More Ants!</a></li>
+  <ul>
+  <li><a href="#problem-6-3-pt">Problem 6 (3 pt)</a></li>
+  <li><a href="#problem-7-7-pt">Problem 7 (7 pt)</a></li>
+  <li><a href="#problem-8-7-pt">Problem 8 (7 pt)</a></li>
+  <li><a href="#problem-9-3-pt">Problem 9 (3 pt)</a></li>
+</ul>
+
+  <li><a href="#phase-4-water-and-might">Phase 4: Water and Might</a></li>
+  <ul>
+  <li><a href="#problem-10-3-pt">Problem 10 (3 pt)</a></li>
+  <li><a href="#problem-11-3-pt">Problem 11 (3 pt)</a></li>
+  <li><a href="#problem-12-7-pt">Problem 12 (7 pt)</a></li>
+  <li><a href="#extra-credit-2-pt">Extra Credit (2 pt)</a></li>
+</ul>
+
+  <li><a href="#optional-problems">Optional Problems</a></li>
+  <ul>
+  <li><a href="#optional-problem-1">Optional Problem 1</a></li>
+  <li><a href="#optional-problem-2">Optional Problem 2</a></li>
+</ul>
+
+  <li><a href="#project-submission">Project Submission</a></li>
 </ul>
 
     </nav>
